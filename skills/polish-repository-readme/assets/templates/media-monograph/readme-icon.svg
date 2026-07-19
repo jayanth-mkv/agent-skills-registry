@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Media monograph icon seed</title>
+  <desc id="desc">A media frame examined through a muted-sage search lens.</desc>
+  <rect x="12" y="12" width="232" height="232" rx="54" fill="#F5F6F1" stroke="#121713" stroke-width="8"/>
+  <rect x="43" y="53" width="170" height="126" rx="12" fill="#FFFFFF" stroke="#121713" stroke-width="8"/>
+  <path d="M69 53v25M103 53v25M153 53v25M187 53v25M69 154v25M103 154v25M153 154v25M187 154v25" stroke="#66735F" stroke-width="8"/>
+  <circle cx="121" cy="116" r="35" fill="#DDE3D7" stroke="#121713" stroke-width="8"/>
+  <path d="M109 99l29 17-29 17Z" fill="#121713"/>
+  <path d="M146 141l40 40" stroke="#66735F" stroke-width="14" stroke-linecap="round"/>
+</svg>

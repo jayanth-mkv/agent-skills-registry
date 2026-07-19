@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-labelledby="title desc">
+  <title id="title">Media research architecture seed</title>
+  <desc id="desc">A storyboard pipeline separates current experiments from planned indexing and retrieval stages.</desc>
+  <rect width="1400" height="720" fill="#F5F6F1"/>
+  <rect x="28" y="28" width="1344" height="664" fill="none" stroke="#121713" stroke-width="2"/>
+  <text x="68" y="78" fill="#66735F" font-family="Courier New, monospace" font-size="14" font-weight="700" letter-spacing="2.5">PROJECT / STORYBOARD 01</text>
+  <text x="68" y="142" fill="#121713" font-family="Georgia, Times New Roman, serif" font-size="50" font-weight="700">Build the result from source evidence.</text>
+  <text x="1332" y="136" fill="#66735F" font-family="Courier New, monospace" font-size="13" text-anchor="end">CURRENT → RESEARCH → PLANNED</text>
+  <line x1="68" y1="174" x2="1332" y2="174" stroke="#CFD6C9" stroke-width="2"/>
+  <rect x="68" y="226" width="1264" height="286" fill="#121713"/>
+  <g fill="#F5F6F1">
+    <path d="M88 242h28v20H88zM152 242h28v20h-28zM216 242h28v20h-28zM280 242h28v20h-28zM344 242h28v20h-28zM408 242h28v20h-28zM472 242h28v20h-28zM536 242h28v20h-28zM600 242h28v20h-28zM664 242h28v20h-28zM728 242h28v20h-28zM792 242h28v20h-28zM856 242h28v20h-28zM920 242h28v20h-28zM984 242h28v20h-28zM1048 242h28v20h-28zM1112 242h28v20h-28zM1176 242h28v20h-28zM1240 242h28v20h-28zM1304 242h8v20h-8z"/>
+    <path d="M88 476h28v20H88zM152 476h28v20h-28zM216 476h28v20h-28zM280 476h28v20h-28zM344 476h28v20h-28zM408 476h28v20h-28zM472 476h28v20h-28zM536 476h28v20h-28zM600 476h28v20h-28zM664 476h28v20h-28zM728 476h28v20h-28zM792 476h28v20h-28zM856 476h28v20h-28zM920 476h28v20h-28zM984 476h28v20h-28zM1048 476h28v20h-28zM1112 476h28v20h-28zM1176 476h28v20h-28zM1240 476h28v20h-28zM1304 476h8v20h-8z"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="96" y="288" width="202" height="154" fill="#F5F6F1"/><text x="197" y="333" fill="#121713" font-size="22" font-weight="700" text-anchor="middle">Source media</text><text x="197" y="369" fill="#66735F" font-family="Courier New, monospace" font-size="12" text-anchor="middle">VERIFIED INPUT</text><path d="M176 390l42 24-42 24Z" fill="#121713"/>
+    <rect x="330" y="288" width="202" height="154" fill="#DDE3D7"/><text x="431" y="333" fill="#121713" font-size="22" font-weight="700" text-anchor="middle">Current stage</text><text x="431" y="369" fill="#66735F" font-family="Courier New, monospace" font-size="12" text-anchor="middle">RUNNABLE</text><text x="431" y="411" fill="#121713" font-family="Georgia, Times New Roman, serif" font-size="18" text-anchor="middle">verified result</text>
+    <rect x="564" y="288" width="202" height="154" fill="#F5F6F1" stroke="#66735F" stroke-width="3"/><text x="665" y="333" fill="#121713" font-size="22" font-weight="700" text-anchor="middle">Research stage</text><text x="665" y="369" fill="#66735F" font-family="Courier New, monospace" font-size="12" text-anchor="middle">EXPERIMENTAL</text><text x="665" y="411" fill="#121713" font-family="Georgia, Times New Roman, serif" font-size="18" text-anchor="middle">notes + tests</text>
+    <rect x="798" y="288" width="202" height="154" fill="#F5F6F1" stroke="#66735F" stroke-width="3" stroke-dasharray="9 7"/><text x="899" y="333" fill="#121713" font-size="22" font-weight="700" text-anchor="middle">Planned stage</text><text x="899" y="369" fill="#66735F" font-family="Courier New, monospace" font-size="12" text-anchor="middle">PLANNED</text><text x="899" y="411" fill="#121713" font-family="Georgia, Times New Roman, serif" font-size="18" text-anchor="middle">future boundary</text>
+    <rect x="1032" y="288" width="272" height="154" fill="#F5F6F1" stroke="#66735F" stroke-width="3" stroke-dasharray="9 7"/><text x="1168" y="333" fill="#121713" font-size="22" font-weight="700" text-anchor="middle">Observable result</text><text x="1168" y="369" fill="#66735F" font-family="Courier New, monospace" font-size="12" text-anchor="middle">LABEL STATUS</text><text x="1168" y="411" fill="#121713" font-family="Georgia, Times New Roman, serif" font-size="18" text-anchor="middle">evidence retained</text>
+  </g>
+  <g fill="#F5F6F1"><path d="M330 365l-14-9v18ZM564 365l-14-9v18ZM798 365l-14-9v18ZM1032 365l-14-9v18Z"/></g>
+  <text x="68" y="568" fill="#66735F" font-family="Courier New, monospace" font-size="13" font-weight="700">LEGEND</text>
+  <rect x="68" y="592" width="24" height="18" fill="#DDE3D7"/><text x="106" y="606" fill="#121713" font-family="Courier New, monospace" font-size="13">CURRENT / RESEARCH</text>
+  <rect x="330" y="592" width="24" height="18" fill="none" stroke="#66735F" stroke-width="2" stroke-dasharray="6 4"/><text x="368" y="606" fill="#121713" font-family="Courier New, monospace" font-size="13">PLANNED SYSTEM STAGE</text>
+  <text x="1332" y="606" fill="#66735F" font-family="Courier New, monospace" font-size="13" text-anchor="end">REPRODUCIBLE · SOURCE-GROUNDED</text>
+  <text x="68" y="658" fill="#121713" font-family="Georgia, Times New Roman, serif" font-size="20" font-style="italic">State the evidence rule that makes the result trustworthy.</text>
+</svg>

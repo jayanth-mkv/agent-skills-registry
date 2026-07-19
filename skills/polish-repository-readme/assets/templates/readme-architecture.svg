@@ -1,39 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" role="img">
-  <title>Project architecture template</title>
-  <desc>A reusable paper-and-ink architecture template with implemented and optional paths.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-labelledby="title desc">
+  <title id="title">Classic editorial architecture seed</title>
+  <desc id="desc">A warm-white paper-and-ink architecture composition with implemented and optional paths.</desc>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0 0l12 6-12 6z" fill="#151515"/>
+      <path d="M0 0l12 6-12 6z" fill="#171614"/>
     </marker>
   </defs>
-  <rect width="1400" height="720" fill="#F4F0E7"/>
-  <rect x="28" y="28" width="1344" height="664" fill="none" stroke="#151515" stroke-width="3"/>
-  <text x="76" y="108" fill="#151515" font-family="Georgia, serif" font-size="48" font-weight="700">How Project Name works</text>
-  <text x="78" y="148" fill="#69655E" font-family="Arial, sans-serif" font-size="20">Replace every stage with evidence from the repository.</text>
+  <rect width="1400" height="720" fill="#F6F2EA"/>
+  <rect x="28" y="28" width="1344" height="664" fill="none" stroke="#171614" stroke-width="3"/>
+  <text x="76" y="108" fill="#171614" font-family="Georgia, serif" font-size="48" font-weight="700">How Project Name works</text>
+  <text x="78" y="148" fill="#67625C" font-family="Arial, sans-serif" font-size="20">Replace every stage with evidence from the repository.</text>
   <g font-family="Arial, sans-serif">
-    <rect x="78" y="246" width="260" height="176" fill="#E5DED2" stroke="#151515" stroke-width="3"/>
-    <text x="108" y="294" fill="#B54A32" font-family="'Courier New', monospace" font-size="17">01 / INPUT</text>
-    <text x="108" y="344" fill="#151515" font-family="Georgia, serif" font-size="29" font-weight="700">Source</text>
-    <text x="108" y="382" fill="#151515" font-size="18">verified boundary</text>
-    <path d="M338 334h82" stroke="#151515" stroke-width="4" marker-end="url(#arrow)"/>
-    <rect x="438" y="246" width="260" height="176" fill="#F4F0E7" stroke="#151515" stroke-width="3"/>
-    <text x="468" y="294" fill="#B54A32" font-family="'Courier New', monospace" font-size="17">02 / CORE</text>
-    <text x="468" y="344" fill="#151515" font-family="Georgia, serif" font-size="29" font-weight="700">Process</text>
-    <text x="468" y="382" fill="#151515" font-size="18">implemented behavior</text>
-    <path d="M698 334h82" stroke="#151515" stroke-width="4" marker-end="url(#arrow)"/>
-    <rect x="798" y="246" width="260" height="176" fill="#F4F0E7" stroke="#151515" stroke-width="3"/>
-    <text x="828" y="294" fill="#B54A32" font-family="'Courier New', monospace" font-size="17">03 / OUTPUT</text>
-    <text x="828" y="344" fill="#151515" font-family="Georgia, serif" font-size="29" font-weight="700">Interface</text>
-    <text x="828" y="382" fill="#151515" font-size="18">observable result</text>
-    <path d="M1058 334h82" stroke="#151515" stroke-width="4" stroke-dasharray="12 10" marker-end="url(#arrow)"/>
-    <rect x="1158" y="246" width="164" height="176" fill="#151515"/>
-    <text x="1184" y="294" fill="#D77A61" font-family="'Courier New', monospace" font-size="17">04 / OPTIONAL</text>
-    <text x="1184" y="344" fill="#F4F0E7" font-family="Georgia, serif" font-size="27" font-weight="700">Extension</text>
-    <text x="1184" y="382" fill="#F4F0E7" font-size="17">label status</text>
+    <rect x="78" y="246" width="260" height="176" fill="#E8E0D7" stroke="#171614" stroke-width="3"/>
+    <text x="108" y="294" fill="#8A574C" font-family="Courier New, monospace" font-size="17">01 / INPUT</text>
+    <text x="108" y="344" fill="#171614" font-family="Georgia, serif" font-size="29" font-weight="700">Source</text>
+    <text x="108" y="382" fill="#171614" font-size="18">verified boundary</text>
+    <path d="M338 334h82" stroke="#171614" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="438" y="246" width="260" height="176" fill="#F6F2EA" stroke="#171614" stroke-width="3"/>
+    <text x="468" y="294" fill="#8A574C" font-family="Courier New, monospace" font-size="17">02 / CORE</text>
+    <text x="468" y="344" fill="#171614" font-family="Georgia, serif" font-size="29" font-weight="700">Process</text>
+    <text x="468" y="382" fill="#171614" font-size="18">implemented behavior</text>
+    <path d="M698 334h82" stroke="#171614" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="798" y="246" width="260" height="176" fill="#F6F2EA" stroke="#171614" stroke-width="3"/>
+    <text x="828" y="294" fill="#8A574C" font-family="Courier New, monospace" font-size="17">03 / OUTPUT</text>
+    <text x="828" y="344" fill="#171614" font-family="Georgia, serif" font-size="29" font-weight="700">Interface</text>
+    <text x="828" y="382" fill="#171614" font-size="18">observable result</text>
+    <path d="M1058 334h82" stroke="#171614" stroke-width="4" stroke-dasharray="12 10" marker-end="url(#arrow)"/>
+    <rect x="1158" y="246" width="164" height="176" fill="#171614"/>
+    <text x="1178" y="294" fill="#D7A99F" font-family="Courier New, monospace" font-size="14">04 / OPTIONAL</text>
+    <text x="1178" y="344" fill="#F6F2EA" font-family="Georgia, serif" font-size="23" font-weight="700">Extension</text>
+    <text x="1178" y="382" fill="#F6F2EA" font-size="16">label status</text>
   </g>
-  <line x1="78" y1="518" x2="1322" y2="518" stroke="#B9B3A8" stroke-width="2"/>
-  <path d="M94 584h86" stroke="#151515" stroke-width="4"/>
-  <text x="200" y="591" fill="#151515" font-family="Arial, sans-serif" font-size="18">implemented</text>
-  <path d="M396 584h86" stroke="#151515" stroke-width="4" stroke-dasharray="12 10"/>
-  <text x="502" y="591" fill="#151515" font-family="Arial, sans-serif" font-size="18">optional or planned</text>
+  <line x1="78" y1="518" x2="1322" y2="518" stroke="#C3BBB0" stroke-width="2"/>
+  <path d="M94 584h86" stroke="#171614" stroke-width="4"/>
+  <text x="200" y="591" fill="#171614" font-family="Arial, sans-serif" font-size="18">implemented</text>
+  <path d="M396 584h86" stroke="#171614" stroke-width="4" stroke-dasharray="12 10"/>
+  <text x="502" y="591" fill="#171614" font-family="Arial, sans-serif" font-size="18">optional or planned</text>
 </svg>

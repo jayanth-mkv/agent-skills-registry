@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Technical dossier icon seed</title>
+  <desc id="desc">A source document centered inside a precise inspection scope.</desc>
+  <rect x="12" y="12" width="232" height="232" rx="54" fill="#F4F7F8" stroke="#111A1E" stroke-width="8"/>
+  <circle cx="128" cy="128" r="76" fill="#E2EAED" stroke="#607D88" stroke-width="5"/>
+  <path d="M62 96V70a8 8 0 0 1 8-8h26M160 62h26a8 8 0 0 1 8 8v26M194 160v26a8 8 0 0 1-8 8h-26M96 194H70a8 8 0 0 1-8-8v-26" fill="none" stroke="#111A1E" stroke-width="9"/>
+  <rect x="91" y="72" width="74" height="108" rx="8" fill="#F4F7F8" stroke="#111A1E" stroke-width="8"/>
+  <path d="M108 101h40M108 123h40M108 145h23" fill="none" stroke="#607D88" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="151" cy="151" r="19" fill="#111A1E"/>
+  <path d="M151 140v13M151 162h.1" stroke="#F4F7F8" stroke-width="6" stroke-linecap="round"/>
+</svg>

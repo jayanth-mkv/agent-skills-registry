@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-labelledby="title desc">
+  <title id="title">Technical dossier architecture seed</title>
+  <desc id="desc">Verified sources converge on a central engine and become observable outputs.</desc>
+  <rect width="1400" height="720" fill="#F4F7F8"/>
+  <rect x="28" y="28" width="1344" height="664" fill="none" stroke="#111A1E" stroke-width="2"/>
+  <text x="68" y="78" fill="#506C77" font-family="Courier New, monospace" font-size="14" font-weight="700" letter-spacing="2.5">PROJECT / SYSTEM MAP 01</text>
+  <text x="68" y="142" fill="#111A1E" font-family="Georgia, Times New Roman, serif" font-size="50" font-weight="700">Turn verified inputs into observable results.</text>
+  <line x1="68" y1="174" x2="1332" y2="174" stroke="#C9D7DC" stroke-width="2"/>
+  <text x="68" y="226" fill="#506C77" font-family="Courier New, monospace" font-size="14" font-weight="700" letter-spacing="2">01 / SOURCES</text>
+  <text x="1050" y="226" fill="#506C77" font-family="Courier New, monospace" font-size="14" font-weight="700" letter-spacing="2">03 / OUTPUTS</text>
+  <rect x="68" y="254" width="278" height="236" fill="#FFFFFF" stroke="#111A1E" stroke-width="3"/>
+  <text x="96" y="297" fill="#111A1E" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Verified sources</text>
+  <g fill="#E2EAED" stroke="#607D88" stroke-width="1.5"><rect x="96" y="325" width="222" height="34"/><rect x="96" y="371" width="222" height="34"/><rect x="96" y="417" width="222" height="34"/></g>
+  <g fill="#111A1E" font-family="Courier New, monospace" font-size="14"><text x="112" y="347">entry point</text><text x="112" y="393">configuration</text><text x="112" y="439">stored data</text></g>
+  <circle cx="700" cy="372" r="166" fill="#E2EAED" stroke="#111A1E" stroke-width="3"/>
+  <text x="700" y="198" fill="#506C77" font-family="Courier New, monospace" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="2">02 / CORE ENGINE</text>
+  <circle cx="700" cy="372" r="116" fill="#111A1E"/>
+  <text x="700" y="337" fill="#F4F7F8" font-family="Georgia, Times New Roman, serif" font-size="29" font-weight="700" text-anchor="middle">Core engine</text>
+  <text x="700" y="378" fill="#C9D7DC" font-family="Courier New, monospace" font-size="14" text-anchor="middle">VERIFY → PROCESS</text>
+  <text x="700" y="408" fill="#C9D7DC" font-family="Courier New, monospace" font-size="14" text-anchor="middle">PERSIST → EXPLAIN</text>
+  <path d="M700 206v40M700 498v40M534 372h50M816 372h50" stroke="#607D88" stroke-width="5"/>
+  <rect x="1050" y="254" width="282" height="236" fill="#FFFFFF" stroke="#111A1E" stroke-width="3"/>
+  <text x="1078" y="297" fill="#111A1E" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Observable results</text>
+  <g fill="#111A1E" font-family="Courier New, monospace" font-size="14"><text x="1078" y="343">interface  user result</text><text x="1078" y="383">API        response</text><text x="1078" y="423">storage    durable state</text><text x="1078" y="463">logs       evidence</text></g>
+  <path d="M346 372H502M898 372h152" fill="none" stroke="#111A1E" stroke-width="4"/>
+  <path d="M502 372l-15-9v18ZM1050 372l-15-9v18Z" fill="#111A1E"/>
+  <rect x="68" y="568" width="1264" height="72" fill="#111A1E"/>
+  <text x="700" y="612" fill="#F4F7F8" font-family="Courier New, monospace" font-size="18" text-anchor="middle">REPLACE EVERY LABEL WITH REPOSITORY EVIDENCE</text>
+</svg>
