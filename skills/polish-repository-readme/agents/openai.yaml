@@ -1,7 +1,7 @@
 interface:
   display_name: "Polish Repository README"
-  short_description: "Design evidence-backed repository READMEs"
+  short_description: "Polish READMEs with truthful visual systems"
   icon_small: "./assets/icon.svg"
   icon_large: "./assets/icon.svg"
-  brand_color: "#151515"
-  default_prompt: "Use $polish-repository-readme to audit and improve this repository README and supporting visuals."
+  brand_color: "#171614"
+  default_prompt: "Use $polish-repository-readme to audit and improve this repository README with an evidence-backed, repository-derived visual system."

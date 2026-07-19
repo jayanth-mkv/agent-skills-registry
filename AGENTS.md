@@ -101,7 +101,11 @@ When a skill creates or improves a repository README:
 - When no recording exists, use an honest paperback-style cover instead of a fabricated screenshot.
 - Add a separate architecture diagram based on the implementation.
 - Treat profile repositories as an exception to the product-demo layout.
-- Use a warm paper, black ink, and accessible high-contrast visual system unless the project has a stronger established identity.
+- Prefer white, off-white, or a very light repository-derived paper tint with near-black ink and accessible contrast.
+- Derive one restrained accent, and at most one neighboring support shade, from verified logos, SVGs, interface colors, or domain materials.
+- Build the icon, cover, and architecture as one coordinated visual family while giving each asset a different job and composition.
+- Treat bundled templates as optional compositional seeds, not an allowed list. Adapt, combine, redraw, or invent a new family so unrelated repositories do not receive the same paperback layout.
+- Choose visual motifs from repository meaning and evidence, not generic AI decoration.
 - Avoid gradients, glow, glass effects, stock art, emoji icons, fake interfaces, fake metrics, and decorative architecture.
 - Add meaningful alt text and SVG `<title>` and `<desc>` elements.
 - Check every claim against source, configuration, tests, or working behavior.

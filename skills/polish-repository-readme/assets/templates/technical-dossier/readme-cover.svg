@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Technical dossier cover seed</title>
+  <desc id="desc">A cool-white asymmetric repository cover with a diagnostic mark and verified command.</desc>
+  <rect width="1200" height="630" fill="#F4F7F8"/>
+  <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#111A1E" stroke-width="2"/>
+  <line x1="62" y1="112" x2="1138" y2="112" stroke="#C9D7DC" stroke-width="2"/>
+  <text x="62" y="78" fill="#506C77" font-family="Courier New, monospace" font-size="14" font-weight="700" letter-spacing="2.5">PROJECT / TECHNICAL DOSSIER 01</text>
+  <text x="1138" y="78" fill="#111A1E" font-family="Courier New, monospace" font-size="13" text-anchor="end">VERIFIED STATUS</text>
+  <text x="62" y="264" fill="#111A1E" font-family="Georgia, Times New Roman, serif" font-size="92" font-weight="700">Project Name</text>
+  <text x="66" y="313" fill="#506C77" font-family="Courier New, monospace" font-size="16" font-weight="700" letter-spacing="3">VERIFIED OUTCOME, MADE VISIBLE</text>
+  <text x="66" y="372" fill="#111A1E" font-family="Arial, Helvetica, sans-serif" font-size="24">Put one defensible repository promise here.</text>
+  <text x="66" y="410" fill="#506C77" font-family="Arial, Helvetica, sans-serif" font-size="18">Use a second line only when it materially clarifies the first.</text>
+  <g transform="translate(938 290)">
+    <circle r="122" fill="#E2EAED" stroke="#607D88" stroke-width="2"/>
+    <circle r="78" fill="none" stroke="#111A1E" stroke-width="2"/>
+    <circle r="8" fill="#111A1E"/>
+    <path d="M-142 0H-92M92 0h50M0-142v50M0 92v50" stroke="#111A1E" stroke-width="5"/>
+    <path d="M-42-26h84M-42 0h84M-42 26h52" stroke="#607D88" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <rect x="62" y="486" width="1076" height="66" fill="#111A1E"/>
+  <text x="92" y="527" fill="#F4F7F8" font-family="Courier New, monospace" font-size="17">verified-command --first-result</text>
+  <text x="1138" y="580" fill="#506C77" font-family="Courier New, monospace" font-size="12" text-anchor="end">VERIFIED / LOCAL / EXPLAINABLE</text>
+</svg>

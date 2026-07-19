@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Field manual icon seed</title>
+  <desc id="desc">An operational system silhouette paired with one restrained instrument.</desc>
+  <rect x="12" y="12" width="232" height="232" rx="54" fill="#F7F2E8" stroke="#1D1A17" stroke-width="8"/>
+  <path d="M42 194V130l44 24v-43l43 24V96h38v98H42Z" fill="#1D1A17"/>
+  <path d="M59 173h21M99 173h21M139 173h21" stroke="#F7F2E8" stroke-width="9"/>
+  <path d="M94 113V69h22v57M144 96V54h22v42" fill="none" stroke="#1D1A17" stroke-width="11"/>
+  <circle cx="188" cy="82" r="30" fill="#A4773F" stroke="#1D1A17" stroke-width="7"/>
+  <path d="M172 94a22 22 0 0 1 32 0M188 82l13-12" fill="none" stroke="#F7F2E8" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="188" cy="82" r="5" fill="#F7F2E8"/>
+</svg>

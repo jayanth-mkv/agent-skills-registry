@@ -40,7 +40,7 @@ npx skills@latest add jayanth-mkv/skills-dump --skill polish-repository-readme -
 Then ask the agent:
 
 ```text
-Use $polish-repository-readme to audit this repository README and supporting visuals.
+Use $polish-repository-readme to audit this README and create a repository-specific premium visual system; invent a new composition when the bundled seeds do not fit.
 ```
 
 ## Skills
@@ -48,7 +48,7 @@ Use $polish-repository-readme to audit this repository README and supporting vis
 <!-- catalog:start -->
 | Skill | What it does | Install |
 | --- | --- | --- |
-| [`polish-repository-readme`](skills/polish-repository-readme/SKILL.md) | Audit, redesign, and validate GitHub repository READMEs using icon-led centered heroes, real demo media or paperback fallbacks, plain-language information hierarchy, and honest architecture diagrams. | `npx skills@latest add jayanth-mkv/skills-dump --skill polish-repository-readme` |
+| [`polish-repository-readme`](skills/polish-repository-readme/SKILL.md) | Audit, redesign, and validate GitHub repository READMEs using repository-derived premium visual systems, icon-led centered heroes, real demo media or honest paperback fallbacks, plain-language hierarchy, and truthful architecture diagrams. | `npx skills@latest add jayanth-mkv/skills-dump --skill polish-repository-readme` |
 <!-- catalog:end -->
 
 ## Install

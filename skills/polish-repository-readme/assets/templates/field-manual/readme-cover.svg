@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Industrial field manual cover seed</title>
+  <desc id="desc">A limestone-white operations cover with a contained dark system-study panel.</desc>
+  <rect width="1200" height="630" fill="#F7F2E8"/>
+  <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#1D1A17" stroke-width="2"/>
+  <rect x="28" y="28" width="12" height="574" fill="#A4773F"/>
+  <text x="72" y="78" fill="#875C2C" font-family="Courier New, monospace" font-size="14" font-weight="700" letter-spacing="2.5">FIELD MANUAL / OPS 01</text>
+  <text x="776" y="78" fill="#1D1A17" font-family="Courier New, monospace" font-size="13" text-anchor="end">VERIFIED SYSTEM STATUS</text>
+  <line x1="72" y1="108" x2="776" y2="108" stroke="#D7C9B3" stroke-width="2"/>
+  <text x="72" y="210" fill="#1D1A17" font-family="Georgia, Times New Roman, serif" font-size="66" font-weight="700">Project Name</text>
+  <text x="72" y="290" fill="#1D1A17" font-family="Georgia, Times New Roman, serif" font-size="66" font-style="italic">Operations</text>
+  <text x="76" y="352" fill="#1D1A17" font-family="Arial, Helvetica, sans-serif" font-size="23">State one verified operational outcome.</text>
+  <text x="76" y="392" fill="#7A644B" font-family="Arial, Helvetica, sans-serif" font-size="18">Name the surfaces, evidence, or review boundary that makes it credible.</text>
+  <rect x="72" y="452" width="704" height="70" fill="#1D1A17"/>
+  <text x="102" y="495" fill="#F7F2E8" font-family="Courier New, monospace" font-size="18">verified-command --start</text>
+  <text x="72" y="566" fill="#7A644B" font-family="Courier New, monospace" font-size="12">STACK / BOUNDARY / STATUS / LICENSE</text>
+  <rect x="820" y="28" width="352" height="574" fill="#1D1A17"/>
+  <text x="860" y="80" fill="#DCC8A6" font-family="Courier New, monospace" font-size="13" letter-spacing="2">SYSTEM STUDY</text>
+  <text x="1132" y="80" fill="#A4773F" font-family="Georgia, Times New Roman, serif" font-size="42" text-anchor="end">01</text>
+  <path d="M858 454V322l62 34v-66l64 38v-82h56v208H858Z" fill="none" stroke="#F7F2E8" stroke-width="5"/>
+  <path d="M915 298v-78h34v96M1005 247v-92h36v92" fill="none" stroke="#A4773F" stroke-width="8"/>
+  <path d="M880 412h40M945 412h40M1010 412h40" stroke="#DCC8A6" stroke-width="8"/>
+  <circle cx="1082" cy="260" r="45" fill="none" stroke="#A4773F" stroke-width="6"/>
+  <path d="M1055 278a38 38 0 0 1 54 0M1082 260l19-18" fill="none" stroke="#F7F2E8" stroke-width="6" stroke-linecap="round"/>
+  <text x="860" y="548" fill="#DCC8A6" font-family="Courier New, monospace" font-size="12">REPLACE MOTIF WITH PROJECT EVIDENCE</text>
+</svg>

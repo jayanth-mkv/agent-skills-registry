@@ -19,3 +19,4 @@ The format is based on Keep a Changelog, and releases will use semantic versioni
 
 - Repositioned the collection as a production-ready, reliability-first skills repository.
 - Updated documented single-skill commands to the current `--skill <name>` CLI syntax.
+- Generalized `polish-repository-readme` into an open repository-derived visual framework with premium light palettes, coordinated icon/cover/architecture systems, generative composition axes, optional seed families, and render-based review instead of a repeated paperback layout.
