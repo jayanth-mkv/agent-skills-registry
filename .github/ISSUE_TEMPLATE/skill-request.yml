@@ -1,0 +1,37 @@
+name: Skill request
+description: Propose a focused, selectively installable skill.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Proposed skill name
+      placeholder: lowercase-kebab-case
+    validations:
+      required: true
+  - type: textarea
+    id: trigger
+    attributes:
+      label: When should an agent use it?
+      description: Describe the concrete trigger and user problem.
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Expected workflow and output
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: References, tools, or prior art
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This can be a focused, independently installable skill.
+          required: true

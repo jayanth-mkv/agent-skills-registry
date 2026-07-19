@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible problem in a skill or repository tool.
+title: "fix: "
+labels:
+  - bug
+body:
+  - type: input
+    id: skill
+    attributes:
+      label: Affected skill or component
+      placeholder: polish-repository-readme
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the command or prompt and the observed result.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Agent, operating system, relevant versions, and installation method.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety
+      options:
+        - label: This report contains no secrets or private customer data.
+          required: true

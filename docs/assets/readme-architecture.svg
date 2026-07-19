@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" role="img">
+  <title>Skills Dump architecture</title>
+  <desc>A flat GitHub skill collection feeds selective installation through the skills CLI or a direct Codex directory URL, then reaches only the chosen agent.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0l12 6-12 6z" fill="#151515"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="720" fill="#F4F0E7"/>
+  <rect x="28" y="28" width="1344" height="664" fill="none" stroke="#151515" stroke-width="3"/>
+  <text x="76" y="104" fill="#151515" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700">Selective by design</text>
+  <text x="78" y="144" fill="#69655E" font-family="Arial, Helvetica, sans-serif" font-size="20">One flat catalog. Existing installers. Only the skills an agent needs.</text>
+
+  <rect x="78" y="222" width="270" height="230" fill="#E5DED2" stroke="#151515" stroke-width="3"/>
+  <text x="106" y="270" fill="#B54A32" font-family="'Courier New', monospace" font-size="20">01 / SOURCE</text>
+  <text x="106" y="314" fill="#151515" font-family="Georgia, serif" font-size="30" font-weight="700">GitHub collection</text>
+  <text x="106" y="354" fill="#151515" font-family="Arial, sans-serif" font-size="20">skills/&lt;name&gt;/</text>
+  <text x="106" y="388" fill="#151515" font-family="Arial, sans-serif" font-size="20">SKILL.md + resources</text>
+  <text x="106" y="422" fill="#151515" font-family="Arial, sans-serif" font-size="20">catalog groups</text>
+
+  <path d="M348 337h104" stroke="#151515" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="466" y="192" width="346" height="116" fill="#F4F0E7" stroke="#151515" stroke-width="3"/>
+  <text x="494" y="230" fill="#B54A32" font-family="'Courier New', monospace" font-size="20">02A / CLI</text>
+  <text x="494" y="268" fill="#151515" font-family="Georgia, serif" font-size="27" font-weight="700">npx skills · choose one</text>
+
+  <rect x="466" y="366" width="346" height="116" fill="#F4F0E7" stroke="#151515" stroke-width="3"/>
+  <text x="494" y="404" fill="#B54A32" font-family="'Courier New', monospace" font-size="20">02B / DIRECT</text>
+  <text x="494" y="442" fill="#151515" font-family="Georgia, serif" font-size="27" font-weight="700">Codex directory URL</text>
+
+  <path d="M812 250h108v98" fill="none" stroke="#151515" stroke-width="4"/>
+  <path d="M812 424h108v-76" fill="none" stroke="#151515" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="942" y="222" width="378" height="230" fill="#151515"/>
+  <text x="974" y="270" fill="#D77A61" font-family="'Courier New', monospace" font-size="20">03 / TARGET</text>
+  <text x="974" y="316" fill="#F4F0E7" font-family="Georgia, serif" font-size="30" font-weight="700">Selected agent</text>
+  <text x="974" y="358" fill="#F4F0E7" font-family="Arial, sans-serif" font-size="20">one skill or explicit set</text>
+  <text x="974" y="392" fill="#F4F0E7" font-family="Arial, sans-serif" font-size="20">project-local or global</text>
+  <text x="974" y="426" fill="#F4F0E7" font-family="Arial, sans-serif" font-size="20">only selected dirs installed</text>
+
+  <line x1="78" y1="536" x2="1320" y2="536" stroke="#B9B3A8" stroke-width="2"/>
+  <path d="M94 596h92" stroke="#151515" stroke-width="4"/>
+  <text x="206" y="603" fill="#151515" font-family="Arial, sans-serif" font-size="20">verified install route</text>
+  <text x="1044" y="603" fill="#69655E" font-family="'Courier New', monospace" font-size="20">FLAT / DISCOVERABLE / LEAN</text>
+</svg>

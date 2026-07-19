@@ -1,0 +1,82 @@
+name: Skill Quality Gates
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skill-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DISABLE_TELEMETRY: "1"
+  DO_NOT_TRACK: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  validate:
+    name: Validate format and discovery
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.20.0"
+
+      - name: Compile Python helpers
+        run: python -m compileall -q scripts skills
+
+      - name: Validate repository invariants
+        run: python scripts/validate_all_skills.py
+
+      - name: Install official Agent Skills validator
+        run: python -m pip install skills-ref==0.1.1
+
+      - name: Validate every skill against the official specification
+        shell: bash
+        run: |
+          for skill_dir in skills/*/; do
+            agentskills validate "$skill_dir"
+          done
+
+      - name: Check generated catalog
+        run: python scripts/generate_catalog.py --check
+
+      - name: Check public README
+        run: python skills/polish-repository-readme/scripts/validate_readme.py README.md --repo-root .
+
+      - name: Check helper CLIs
+        run: |
+          python scripts/assert_cli_discovery.py --help
+          python skills/polish-repository-readme/scripts/make_demo_preview.py --help
+
+      - name: Verify pinned skills CLI discovery
+        shell: bash
+        run: |
+          npx --yes skills@1.5.19 add . --list | tee .skills-discovery.txt
+          python scripts/assert_cli_discovery.py .skills-discovery.txt
+
+      - name: Verify latest skills CLI compatibility
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          npx --yes skills@latest add . --list | tee .skills-discovery-latest.txt
+          python scripts/assert_cli_discovery.py .skills-discovery-latest.txt

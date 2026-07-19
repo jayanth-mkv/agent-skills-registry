@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img">
+  <title>Project Name paperback cover</title>
+  <desc>A reusable warm paper repository cover with a title, promise, verified command, and metadata.</desc>
+  <rect width="1200" height="630" fill="#F4F0E7"/>
+  <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#151515" stroke-width="3"/>
+  <text x="90" y="150" fill="#B54A32" font-family="'Courier New', monospace" font-size="20" letter-spacing="4">OPEN SOURCE / PROJECT NOTE 01</text>
+  <text x="90" y="258" fill="#151515" font-family="Georgia, serif" font-size="86" font-weight="700">Project Name</text>
+  <text x="94" y="324" fill="#151515" font-family="Arial, sans-serif" font-size="29">A verified one-sentence project promise belongs here.</text>
+  <line x1="94" y1="370" x2="1106" y2="370" stroke="#151515" stroke-width="3"/>
+  <rect x="94" y="414" width="760" height="72" fill="#151515"/>
+  <text x="122" y="459" fill="#F4F0E7" font-family="'Courier New', monospace" font-size="25">verified-command --first-result</text>
+  <text x="95" y="552" fill="#69655E" font-family="Arial, sans-serif" font-size="20" letter-spacing="5">LOCAL / OPEN / SCRIPTABLE</text>
+  <rect x="1042" y="414" width="64" height="72" fill="#B54A32"/>
+</svg>
