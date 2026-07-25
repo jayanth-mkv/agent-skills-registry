@@ -1,8 +1,8 @@
 <div align="center">
   <img src="docs/assets/icon.svg" width="132" alt="Skills Dump stacked skill cards icon">
   <h1>Skills Dump</h1>
-  <p><strong>Production-ready agent skills, validated before every merge.</strong></p>
-  <p>Spec-compliant. Installer-tested. Selectively installed.</p>
+  <p><strong>A quality-gated catalog of installable agent capabilities.</strong></p>
+  <p>Focused workflows. Selective installation. Repeatable validation.</p>
   <p>
     <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-151515?style=flat-square"></a>
     <a href="https://agentskills.io"><img alt="Agent Skills standard" src="https://img.shields.io/badge/format-Agent%20Skills-B54A32?style=flat-square"></a>
@@ -25,9 +25,15 @@
 
 ## What is Skills Dump?
 
-Skills Dump is a reliability-first, open-source collection of focused agent workflows intended for real project work. Each skill packages concise instructions, optional references, deterministic scripts, and reusable assets in the portable Agent Skills format.
+Skills Dump is a reliability-first, open-source catalog of focused agent capabilities intended for real project work. Each skill packages concise instructions, optional references, deterministic scripts, and reusable assets in the portable Agent Skills format.
 
 Every merged skill must pass repository invariants, the official specification validator, real `skills` CLI discovery, catalog synchronization, and its relevant behavioral checks. Skills remain independently installable, so teams can add the capability they need without loading an unrelated bundle.
+
+The catalog is designed to grow through focused, independently installable skills while preserving the same discovery, validation, and trust standards for every entry.
+
+## Catalog direction
+
+New skills may address different engineering workflows as the catalog grows, but every entry must remain focused, independently installable, licensed, discoverable, and validated. The generated skills table below is the source of truth for what can be installed today.
 
 ## Quick start
 
