@@ -57,7 +57,7 @@ When no recording exists:
 5. Create a coordinated set: the icon establishes the motif, the cover expresses identity, and the architecture explains implementation. Share visual DNA without repeating the same layout.
 6. Vary title placement, geometry, dark-mass placement, proof device, and diagram structure according to the project. Do not default every repository to a left spine and four boxes.
 7. Keep architecture separate from the cover and encode implemented, optional, simulated, and planned behavior with labels plus line or fill styles.
-8. Render icons at 32, 64, and 128 px; render covers and diagrams at full size and a README-like width. Fix clipping, weak contrast, or illegible labels before handoff.
+8. Render icons at 32, 64, and 128 px; render covers and diagrams at full size and a README-like width. Complete the visual safe-area gate in `references/presentation-rulebook.md`; fix clipping, edge crowding, weak contrast, or illegible labels before handoff.
 
 ## Validation
 
