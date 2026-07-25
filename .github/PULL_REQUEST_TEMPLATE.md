@@ -19,7 +19,7 @@ Include repository validation, official specification validation, real CLI disco
 - [ ] The pinned `skills` CLI discovers every published skill.
 - [ ] Claims, commands, screenshots, badges, and diagrams are evidence-backed.
 - [ ] `skills.sh.json` and the generated catalog are synchronized.
-- [ ] The official skills.sh badge still points to `jayanth-mkv/skills-dump`.
+- [ ] The official skills.sh badge still points to `jayanth-mkv/agent-skills-registry`.
 - [ ] Every new skill contains `LICENSE.txt` and `agents/openai.yaml`.
 - [ ] Scripts provide `--help` and fail safely.
 - [ ] I forward-tested substantial skill behavior and visually inspected changed assets.

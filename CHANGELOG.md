@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Skills Dump will be documented in this file.
+All notable changes to Agent Skills Registry will be documented in this file.
 
 The format is based on Keep a Changelog, and releases will use semantic versioning.
 
