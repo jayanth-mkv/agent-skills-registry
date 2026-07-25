@@ -29,6 +29,8 @@ Skills Dump is a reliability-first, open-source collection of focused agent work
 
 Every merged skill must pass repository invariants, the official specification validator, real `skills` CLI discovery, catalog synchronization, and its relevant behavioral checks. Skills remain independently installable, so teams can add the capability they need without loading an unrelated bundle.
 
+The catalog is designed to grow through focused, independently installable skills while preserving the same discovery, validation, and trust standards for every entry.
+
 ## Quick start
 
 You need Node.js and npm, which provides `npx`. Install one skill directly for Codex:
