@@ -108,7 +108,10 @@ For every created or edited SVG, inspect the native render and the actual README
 
 - Measure the visible glyphs, including descenders and strokes—not only SVG text baselines.
 - Keep text inside cards and panels at least 16 native pixels from the inner edge horizontally and vertically, unless a smaller, clearly rendered component requires a proportionally equivalent inset.
+- Size UI-style cards from their longest label at the embedded width. Treat 16 native pixels as a hard floor, not a target; prefer at least one small-label height of empty space (usually 24 native pixels) along the constrained side.
+- Widen or heighten a node and rebalance its connectors before reducing text. Do not make a card merely fit its label.
 - Do not leave labels visually touching a divider, border, or the next component. Increase padding, move text, or enlarge the container instead of accepting a tight fit.
+- After changing one node, review the complete composition at the embedded width so arrows, alignment, and surrounding whitespace stay balanced.
 - Re-render after each spacing fix and inspect all small labels at the embedded README width before committing.
 
 ## Release checklist
@@ -123,5 +126,6 @@ For every created or edited SVG, inspect the native render and the actual README
 - Limitations are visible near relevant claims.
 - Images have useful alternative text.
 - Every SVG passes the visual safe-area gate at its embedded README width.
+- Cards are sized around their longest embedded label, with deliberate optical buffer.
 - Local links resolve and code fences balance.
 - README and asset diffs contain no unrelated changes.
