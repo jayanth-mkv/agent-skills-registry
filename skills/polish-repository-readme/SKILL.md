@@ -14,7 +14,7 @@ Create evidence-backed repository landing pages that look deliberate without hid
 3. Record each important claim as implemented, experimental, simulated, planned, or unknown.
 4. Derive a visual brief from the repository's identity, interface, domain, and existing SVG colors.
 5. Use an official logo when one exists. Otherwise create a restrained functional SVG icon.
-6. Lead with proof: a real demo when recording exists, or a paperback cover when it does not.
+6. Lead with proof: use a real demo when interaction is the clearest proof; otherwise, make an evidence-backed architecture map the primary visual when it explains the repository's central system; use a paperback cover only when neither can do that honestly.
 7. Center the identity block; keep the documentation body left aligned.
 8. Explain what the project is, then give the shortest verified first-use path.
 9. Add a dedicated architecture diagram derived from the actual implementation.
@@ -34,7 +34,14 @@ Read [presentation-rulebook.md](references/presentation-rulebook.md) before choo
 
 ## Proof decision
 
-When a real recording exists:
+When source evidence supports a primary architecture map:
+
+- Use it when the repository's value is best understood as a proven multi-stage workflow, boundary, or system rather than an interactive screen.
+- Place it directly after the centered hero navigation using the centered image format in `presentation-rulebook.md`.
+- Use it as the one architecture diagram for that story; do not repeat the same map lower in the README.
+- Keep the surrounding README hierarchy: centered hero and primary visual, then left-aligned explanatory documentation.
+
+When a real recording exists and interaction is the clearest proof:
 
 - Keep the complete MP4 as the durable source.
 - Create an 8-12 second GIF preview at 800-960 px wide, 8-12 fps, and preferably below 5 MB.
@@ -42,7 +49,7 @@ When a real recording exists:
 - Link the preview to the full recording.
 - Use `scripts/make_demo_preview.py` for a reproducible conversion.
 
-When no recording exists:
+When neither a real demo nor an architecture map is the clearest proof:
 
 - Place a paperback cover after the hero navigation.
 - Put a real product screenshot after "What is it?" when one is available.
@@ -54,9 +61,9 @@ When no recording exists:
 2. Write a one-line brief: `paper / ink / accent / motif / composition / evidence`.
 3. Prefer white, off-white, or a very light theme tint; pair it with near-black ink and one restrained repository-derived accent. Add one neighboring shade only when it clarifies hierarchy.
 4. Decide whether a composition seed from `assets/templates/` helps. Redraw, combine, or simplify it when useful; invent a new family from the generative axes in the composition catalog when none fits. Treat every seed as a spatial idea, never an allowed list or fill-in-the-blank template.
-5. Create a coordinated set: the icon establishes the motif, the cover expresses identity, and the architecture explains implementation. Share visual DNA without repeating the same layout.
+5. Create a coordinated set: the icon establishes the motif, the primary proof visual establishes the story, and any secondary cover or architecture asset explains a distinct concern. Share visual DNA without repeating the same layout.
 6. Vary title placement, geometry, dark-mass placement, proof device, and diagram structure according to the project. Do not default every repository to a left spine and four boxes.
-7. Keep architecture separate from the cover and encode implemented, optional, simulated, and planned behavior with labels plus line or fill styles.
+7. Keep a secondary architecture separate from a cover; when architecture is the primary visual, do not add a duplicate cover. Encode implemented, optional, simulated, and planned behavior with labels plus line or fill styles.
 8. Render icons at 32, 64, and 128 px; render covers and diagrams at full size and a README-like width. Complete the visual safe-area gate in `references/presentation-rulebook.md`; fix clipping, edge crowding, weak contrast, or illegible labels before handoff.
 
 ## Validation

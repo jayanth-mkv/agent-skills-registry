@@ -21,11 +21,11 @@ Use this order unless repository evidence makes another order clearer:
 4. Optional one-sentence clarification.
 5. A compact row of truthful badges.
 6. No more than six navigation links.
-7. Real demo preview, or a paperback cover when no recording exists.
+7. One centered primary visual: a real demo when interaction is the proof, a source-backed architecture map when the system flow is the proof, or a paperback cover only when neither is clearer.
 8. “What is it?” in plain language.
 9. The shortest verified quick start.
 10. Capabilities grouped by user outcome.
-11. A dedicated architecture diagram.
+11. A dedicated architecture diagram when it was not already the primary visual.
 12. Deeper API, configuration, development, security, and contribution details.
 
 Profile repositories are the exception. They should prioritize the person, work, and contact paths instead of pretending to be a product landing page.
@@ -41,10 +41,23 @@ Keep the hero narrow enough to scan. Treat badges as metadata rather than decora
 Prefer evidence in this order:
 
 1. A short preview cut from a real working demo.
-2. A real screenshot showing the useful state.
-3. A restrained paperback cover that describes the project without pretending to show the product.
+2. A source-backed architecture map when the repository's core value is a multi-stage system, workflow, or trust boundary.
+3. A real screenshot showing the useful state.
+4. A restrained paperback cover that describes the project without pretending to show the product.
 
 Preserve the original MP4 when converting a preview. A GIF is a quick proof, not the canonical recording.
+
+### Primary architecture-map format
+
+Use a primary architecture map directly after the centered hero navigation when it gives a more truthful, useful first impression than a demo or cover. Keep the asset self-contained with a factual title and subtitle, then embed it exactly once:
+
+```markdown
+<p align="center">
+  <img src="docs/assets/readme-architecture.svg" width="1000" alt="A concise, factual description of the implemented system flow">
+</p>
+```
+
+Keep the hero and the map centered. Resume left-aligned prose with “What is it?” immediately after it. Do not add the same map again in a later architecture section; add a lower diagram only when it explains a separate concern.
 
 ## Badges
 
@@ -90,7 +103,7 @@ Build diagrams from source paths, entry points, service boundaries, data flow, a
 - Use solid lines for implemented paths.
 - Use dashed lines only for planned or optional paths, and label them.
 - Avoid generic cloud, database, or AI boxes unless the repository proves they exist.
-- Keep the architecture diagram separate from the promotional cover.
+- Use the architecture map as the top primary visual when it best explains the repository; otherwise keep it separate from the promotional cover.
 
 ## Honesty
 

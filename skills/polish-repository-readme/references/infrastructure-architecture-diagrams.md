@@ -30,12 +30,18 @@ Choose a boundary map when containment and trust boundaries matter more than a s
 
 Use a 1400 × 900 or 1600 × 1000 SVG when nested boundaries need vertical breathing room. Do not compress a containment map into a shallow 16:9 strip merely to match a promotional cover.
 
+## Primary README composition
+
+Use this composition when the evidence map is strong enough to become the README's primary visual: put a concise factual title and subtitle across the top, a subtle outer trust or workspace boundary below it, and a quiet tinted product plane inside that boundary. Arrange inputs on the left, the execution core in the center, and outcomes on the right or a lower-right band. This gives the reader the system's story before documentation begins.
+
+Treat this as spatial grammar, not a template. Omit unsupported groups, change the topology to match the proven flow, and use a lower band only when it eliminates crossings. Embed the finished map once, directly after the centered hero navigation, using the `readme-architecture.svg` format in `presentation-rulebook.md`; continue with left-aligned “What is it?” prose below it.
+
 ## Visual grammar
 
 - Use a light canvas, near-black text, one repository-derived accent, and one quiet support tint. Keep most of the page light.
 - Make boundaries subtle containers with clear labels; make active components raised cards with a little more contrast. Do not use shadows to replace hierarchy.
 - Give containers broader padding than their child cards. Keep the page frame, outer boundary, and inner plane visually distinct.
-- Use functional, generic symbols for compute, storage, schedule, API, or browser roles when no official asset exists. Symbols must reinforce labels, never replace them.
+- Check the project's declared dependencies for a compatible icon library before drawing symbols. When one exists and its license permits, reuse its canonical paths as a self-contained, consistently stroked SVG symbol set; do not hand-draw mismatched individual glyphs. Use functional generic symbols only when no suitable library exists. Symbols reinforce labels, never replace them.
 - Use a short role label above a component name when that reduces ambiguity: for example, `EXECUTION` then `Workers`.
 - Size every card from its longest embedded label. Keep the optical spacing rules in the presentation rulebook; never shrink type merely to preserve a fixed node width.
 - Do not copy another product's layout, color palette, logos, or icon artwork. Use the reference as a topology and legibility cue only.
