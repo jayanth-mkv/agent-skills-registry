@@ -53,6 +53,7 @@ Use a 1400 × 900 or 1600 × 1000 SVG when nested boundaries need vertical breat
 - Keep arrows horizontal or vertical when possible; reroute nodes before accepting crossings.
 - Use one arrow for one concept. Do not use undirected decorative lines.
 - Rebalance connector lengths after widening any node; equal spacing is less important than an unambiguous path.
+- Let component labels explain ordinary flows. Add a connector label only when it conveys a proven protocol, permission boundary, or interaction that the two endpoint labels cannot express. Keep that label clear of every path, endpoint, card, and boundary; remove it when it competes with the route it is meant to clarify.
 
 ## Construction blueprint
 
@@ -79,3 +80,4 @@ Represent one worker pool as one card unless the code or deployment actually dis
 5. Confirm each boundary, security property, integration, and directional arrow against the evidence map.
 6. View against GitHub light and dark page backgrounds; retain clear contrast and a readable outline.
 7. Keep the diagram separate from the promotional cover and state any simulated, optional, or planned path in the README text as well.
+8. Inspect the exterior gap around every card inside a nested plane. Keep at least 24 native pixels, or one small-label height when greater, between a child card and its parent boundary; reserve a separate lane for a footer or omit it rather than squeezing it into that gap.
