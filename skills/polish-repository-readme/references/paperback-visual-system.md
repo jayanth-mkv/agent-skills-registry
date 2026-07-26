@@ -93,7 +93,7 @@ Do not paste the icon at large scale into every visual. Reinterpret it through g
 
 ### Architecture
 
-- Use a 1400 × 720 canvas and choose geometry that matches the system: rail, hub, stack, branch, storyboard, boundary map, or layered pipeline.
+- Use a 1400 × 720 canvas for a compact diagram. Use 1400 × 900 or 1600 × 1000 only when nested deployment boundaries need vertical room; choose geometry that matches the system: rail, hub, stack, branch, storyboard, boundary map, or layered pipeline.
 - Show three to six meaningful stages or groups.
 - Prioritize readable labels and flow over visual symmetry.
 - Include a legend when line or fill styles encode state.

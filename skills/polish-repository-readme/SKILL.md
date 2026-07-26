@@ -21,7 +21,7 @@ Create evidence-backed repository landing pages that look deliberate without hid
 10. Put limitations close to the claims they qualify.
 11. Render and inspect every visual, then validate links, Markdown, media, badges, and the final diff.
 
-Read [presentation-rulebook.md](references/presentation-rulebook.md) before choosing hierarchy, proof, or badges. Read [paperback-visual-system.md](references/paperback-visual-system.md) before creating visuals. Read [composition-catalog.md](references/composition-catalog.md) when selecting or hybridizing an icon, cover, or architecture composition.
+Read [presentation-rulebook.md](references/presentation-rulebook.md) before choosing hierarchy, proof, or badges. Read [paperback-visual-system.md](references/paperback-visual-system.md) before creating visuals. Read [composition-catalog.md](references/composition-catalog.md) when selecting or hybridizing an icon, cover, or architecture composition. Read [infrastructure-architecture-diagrams.md](references/infrastructure-architecture-diagrams.md) for deployment, network-boundary, worker, service, datastore, or external-integration diagrams.
 
 ## Evidence rules
 
