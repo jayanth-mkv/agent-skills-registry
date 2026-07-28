@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" role="img">
-  <title>Skills Dump architecture</title>
+  <title>Agent Skills Registry architecture</title>
   <desc>A flat GitHub skill collection feeds selective installation through the skills CLI or a direct Codex directory URL, then reaches only the chosen agent.</desc>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">

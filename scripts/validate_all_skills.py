@@ -18,8 +18,8 @@ RESOURCE_REFERENCE = re.compile(r"`((?:scripts|references|assets)/[^`\n]+)`")
 ICON_REFERENCE = re.compile(r"icon_(?:small|large):\s*[\"']([^\"']+)[\"']")
 ALLOWED_FRONTMATTER = {"name", "description"}
 SKILLS_SCHEMA = "https://skills.sh/schemas/skills.sh.schema.json"
-SKILLS_BADGE_IMAGE = "https://skills.sh/b/jayanth-mkv/skills-dump"
-SKILLS_BADGE_LINK = "https://skills.sh/jayanth-mkv/skills-dump"
+SKILLS_BADGE_IMAGE = "https://skills.sh/b/jayanth-mkv/agent-skills-registry"
+SKILLS_BADGE_LINK = "https://skills.sh/jayanth-mkv/agent-skills-registry"
 
 
 def parse_frontmatter(path: Path) -> tuple[dict[str, str], str, str]:
@@ -230,7 +230,7 @@ def main() -> int:
     else:
         readme = readme_path.read_text(encoding="utf-8")
         if SKILLS_BADGE_IMAGE not in readme or SKILLS_BADGE_LINK not in readme:
-            errors.append("README.md must contain the official skills.sh badge for jayanth-mkv/skills-dump")
+            errors.append("README.md must contain the official skills.sh badge for jayanth-mkv/agent-skills-registry")
         if "<!-- catalog:start -->" not in readme or "<!-- catalog:end -->" not in readme:
             errors.append("README.md must contain generated catalog markers")
         for name in names:

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img">
-  <title>Skills Dump paperback cover</title>
+  <title>Agent Skills Registry paperback cover</title>
   <desc>A warm paper cover describing a modular collection of selectively installable agent skills.</desc>
   <rect width="1200" height="630" fill="#F4F0E7"/>
   <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#151515" stroke-width="3"/>
@@ -10,11 +10,11 @@
     <path d="M18 30h38M18 43h30M18 56h34" stroke="#151515" stroke-width="3"/>
     <path d="M74 2v24M62 14h24" stroke="#B54A32" stroke-width="6"/>
   </g>
-  <text x="90" y="234" fill="#151515" font-family="Georgia, 'Times New Roman', serif" font-size="94" font-weight="700">Skills Dump</text>
+  <text x="90" y="234" fill="#151515" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="700">Agent Skills Registry</text>
   <text x="94" y="300" fill="#151515" font-family="Arial, Helvetica, sans-serif" font-size="29">Production-ready agent skills, validated before every merge.</text>
   <line x1="94" y1="354" x2="1106" y2="354" stroke="#151515" stroke-width="3"/>
   <rect x="94" y="397" width="820" height="74" fill="#151515"/>
-  <text x="122" y="444" fill="#F4F0E7" font-family="'Courier New', monospace" font-size="25">npx skills add jayanth-mkv/skills-dump</text>
+  <text x="122" y="444" fill="#F4F0E7" font-family="'Courier New', monospace" font-size="21">npx skills add jayanth-mkv/agent-skills-registry</text>
   <text x="95" y="550" fill="#69655E" font-family="Arial, Helvetica, sans-serif" font-size="20" letter-spacing="5">SPEC-VALIDATED / CLI-DISCOVERED / SELECTIVE</text>
   <rect x="1040" y="397" width="66" height="74" fill="#B54A32"/>
 </svg>

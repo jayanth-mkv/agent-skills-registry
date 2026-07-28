@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 START = "<!-- catalog:start -->"
 END = "<!-- catalog:end -->"
-REPOSITORY = "jayanth-mkv/skills-dump"
+REPOSITORY = "jayanth-mkv/agent-skills-registry"
 
 
 def metadata(path: Path) -> dict[str, str]:
