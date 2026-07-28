@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Marketing Strategy"
+  short_description: "Turn marketing goals into executable work"
+  default_prompt: "Use $plan-marketing-strategy to diagnose this marketing goal, choose a coherent strategy, and produce the work needed to execute it."
