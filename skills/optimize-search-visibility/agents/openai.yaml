@@ -1,0 +1,4 @@
+interface:
+  display_name: "Optimize Search Visibility"
+  short_description: "Audit and improve SEO and AI-search visibility"
+  default_prompt: "Use $optimize-search-visibility to audit my website end to end and turn the evidence into prioritized, verifiable fixes."

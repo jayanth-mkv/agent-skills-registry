@@ -4,7 +4,7 @@ These instructions apply to the entire repository. Human contributors and coding
 
 ## Purpose
 
-Skills Dump is a public, reliability-first collection of production-ready agent skills. Every merged skill must be focused, independently installable, evidence-backed, spec-valid, discoverable by the maintained installer, and easy to audit.
+Agent Skills Registry is a public, reliability-first collection of production-ready agent skills. Every merged skill must be focused, independently installable, evidence-backed, spec-valid, discoverable by the maintained installer, and easy to audit.
 
 ## Before changing anything
 
@@ -116,7 +116,7 @@ When a skill creates or improves a repository README:
 [![skills.sh](https://skills.sh/b/owner/repo)](https://skills.sh/owner/repo)
 ```
 
-The root README must retain the `jayanth-mkv/skills-dump` badge source unless the repository itself is renamed or transferred.
+The root README must retain the `jayanth-mkv/agent-skills-registry` badge source unless the repository itself is renamed or transferred.
 
 ## Installation compatibility
 

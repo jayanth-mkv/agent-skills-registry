@@ -2,7 +2,7 @@
 
 ## Our pledge
 
-We pledge to make participation in Skills Dump a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity or expression, experience, education, socioeconomic status, nationality, appearance, race, caste, color, religion, or sexual identity and orientation.
+We pledge to make participation in Agent Skills Registry a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity or expression, experience, education, socioeconomic status, nationality, appearance, race, caste, color, religion, or sexual identity and orientation.
 
 ## Expected behavior
 

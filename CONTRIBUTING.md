@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping make Skills Dump dependable for real project work. Contributions may add a focused skill, improve an existing workflow, repair documentation, or strengthen repository tooling.
+Thanks for helping make Agent Skills Registry dependable for real project work. Contributions may add a focused skill, improve an existing workflow, repair documentation, or strengthen repository tooling.
 
 [AGENTS.md](AGENTS.md) is the authoritative contribution rulebook for humans and coding agents. Read it before editing.
 
@@ -50,7 +50,7 @@ skills.sh automatically tracks a public repository after users install from it t
 The root badge must keep this exact source unless the repository is renamed or transferred:
 
 ```markdown
-[![skills.sh](https://skills.sh/b/jayanth-mkv/skills-dump)](https://skills.sh/jayanth-mkv/skills-dump)
+[![skills.sh](https://skills.sh/b/jayanth-mkv/agent-skills-registry)](https://skills.sh/jayanth-mkv/agent-skills-registry)
 ```
 
 ## Commit and pull request
