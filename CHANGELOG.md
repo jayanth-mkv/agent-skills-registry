@@ -14,6 +14,7 @@ The format is based on Keep a Changelog, and releases will use semantic versioni
 - Official `skills.sh` install-count badge.
 - Layered quality gates for repository invariants, the Agent Skills reference validator, and real CLI discovery.
 - Automated catalog and skill validation.
+- `plan-marketing-strategy` skill for diagnosing marketing constraints and turning evidence into original, capacity-aware strategy and execution across research, positioning, brand, creative, content and web surfaces, discovery, paid media, social and community, creators and partnerships, earned and live channels, outbound and sales, offers and conversion, lifecycle and retention, revenue operations, measurement, business-model playbooks, and trust controls.
 - `optimize-search-visibility` skill for evidence-led, end-to-end SEO and AI-search audits, Search Console analysis, specialist playbooks, verified implementation, and deterministic crawl/regression tooling.
 
 ### Changed

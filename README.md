@@ -55,6 +55,7 @@ Use $polish-repository-readme to audit this README and create a repository-speci
 | Skill | What it does | Install |
 | --- | --- | --- |
 | [`optimize-search-visibility`](skills/optimize-search-visibility/SKILL.md) | Audit, diagnose, plan, implement, and verify end-to-end organic search improvements across crawlability, indexation, information architecture, on-page content, structured data, Core Web Vitals, internal links, authority, Search Console analytics, local, international, ecommerce, programmatic SEO, migrations, traffic drops, and AI-search visibility. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill optimize-search-visibility` |
+| [`plan-marketing-strategy`](skills/plan-marketing-strategy/SKILL.md) | Diagnose marketing goals and performance problems, turn evidence into positioning and strategy, and plan or execute capacity-aware work across research, brand, content, websites, SEO and AI discovery, app/local/marketplace presence, paid media, social, community, creators, partnerships, PR, events, outbound, sales, offers, pricing, conversion, email, messaging, lifecycle, retention, revenue operations, analytics, experiments, and governance. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill plan-marketing-strategy` |
 | [`polish-repository-readme`](skills/polish-repository-readme/SKILL.md) | Audit, redesign, and validate GitHub repository READMEs using repository-derived premium visual systems, icon-led centered heroes, real demo media or honest paperback fallbacks, plain-language hierarchy, and truthful architecture diagrams. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill polish-repository-readme` |
 <!-- catalog:end -->
 
@@ -144,6 +145,11 @@ agent-skills-registry/
 │   │   ├── LICENSE.txt
 │   │   ├── agents/openai.yaml
 │   │   ├── scripts/
+│   │   └── references/
+│   ├── plan-marketing-strategy/
+│   │   ├── SKILL.md
+│   │   ├── LICENSE.txt
+│   │   ├── agents/openai.yaml
 │   │   └── references/
 │   └── polish-repository-readme/
 │       ├── SKILL.md
