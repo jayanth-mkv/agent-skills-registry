@@ -54,6 +54,7 @@ Use $polish-repository-readme to audit this README and create a repository-speci
 <!-- catalog:start -->
 | Skill | What it does | Install |
 | --- | --- | --- |
+| [`optimize-search-visibility`](skills/optimize-search-visibility/SKILL.md) | Audit, diagnose, plan, implement, and verify end-to-end organic search improvements across crawlability, indexation, information architecture, on-page content, structured data, Core Web Vitals, internal links, authority, Search Console analytics, local, international, ecommerce, programmatic SEO, migrations, traffic drops, and AI-search visibility. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill optimize-search-visibility` |
 | [`polish-repository-readme`](skills/polish-repository-readme/SKILL.md) | Audit, redesign, and validate GitHub repository READMEs using repository-derived premium visual systems, icon-led centered heroes, real demo media or honest paperback fallbacks, plain-language hierarchy, and truthful architecture diagrams. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill polish-repository-readme` |
 <!-- catalog:end -->
 
@@ -138,6 +139,12 @@ The flat `skills/<name>/SKILL.md` layout is the public API. `skills.sh.json` add
 ```text
 agent-skills-registry/
 ├── skills/
+│   ├── optimize-search-visibility/
+│   │   ├── SKILL.md
+│   │   ├── LICENSE.txt
+│   │   ├── agents/openai.yaml
+│   │   ├── scripts/
+│   │   └── references/
 │   └── polish-repository-readme/
 │       ├── SKILL.md
 │       ├── LICENSE.txt
@@ -171,4 +178,4 @@ A skill is executable guidance, not a passive document. Review `SKILL.md` and bu
 
 ## License
 
-Agent Skills Registry and the included `polish-repository-readme` skill are available under the [MIT License](LICENSE). Every skill also carries its own `LICENSE.txt` so selective installs retain the license.
+Agent Skills Registry is available under the [MIT License](LICENSE). Every skill also carries its own `LICENSE.txt` so selective installs retain its license.
