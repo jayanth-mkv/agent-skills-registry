@@ -54,6 +54,7 @@ Use $polish-repository-readme to audit this README and create a repository-speci
 <!-- catalog:start -->
 | Skill | What it does | Install |
 | --- | --- | --- |
+| [`analyze-email-effectiveness`](skills/analyze-email-effectiveness/SKILL.md) | Evidence-led analysis of individual emails, campaigns, sequences, programs, portfolios, and sending domains across lifecycle position, audience-message-offer fit, copy and conversion, MIME and HTML quality, accessibility, message security, consent, compliance, DNS and authentication, receiver reputation, inbox-placement evidence, DMARC reports, performance, and experiments. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill analyze-email-effectiveness` |
 | [`optimize-search-visibility`](skills/optimize-search-visibility/SKILL.md) | Audit, diagnose, plan, implement, and verify end-to-end organic search improvements across crawlability, indexation, information architecture, on-page content, structured data, Core Web Vitals, internal links, authority, Search Console analytics, local, international, ecommerce, programmatic SEO, migrations, traffic drops, and AI-search visibility. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill optimize-search-visibility` |
 | [`plan-marketing-strategy`](skills/plan-marketing-strategy/SKILL.md) | Diagnose marketing goals and performance problems, turn evidence into positioning and strategy, and plan or execute capacity-aware work across research, brand, content, websites, SEO and AI discovery, app/local/marketplace presence, paid media, social, community, creators, partnerships, PR, events, outbound, sales, offers, pricing, conversion, email, messaging, lifecycle, retention, revenue operations, analytics, experiments, and governance. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill plan-marketing-strategy` |
 | [`polish-repository-readme`](skills/polish-repository-readme/SKILL.md) | Audit, redesign, and validate GitHub repository READMEs using repository-derived premium visual systems, icon-led centered heroes, real demo media or honest paperback fallbacks, plain-language hierarchy, and truthful architecture diagrams. | `npx skills@latest add jayanth-mkv/agent-skills-registry --skill polish-repository-readme` |
@@ -140,6 +141,12 @@ The flat `skills/<name>/SKILL.md` layout is the public API. `skills.sh.json` add
 ```text
 agent-skills-registry/
 ├── skills/
+│   ├── analyze-email-effectiveness/
+│   │   ├── SKILL.md
+│   │   ├── LICENSE.txt
+│   │   ├── agents/openai.yaml
+│   │   ├── scripts/
+│   │   └── references/
 │   ├── optimize-search-visibility/
 │   │   ├── SKILL.md
 │   │   ├── LICENSE.txt
