@@ -123,11 +123,79 @@ Also inspect seller/content moderation, duplicate offers, canonical ownership, t
 
 When the user asks about shopping agents or emerging commerce protocols:
 
-- verify current official documentation and availability;
-- separate production standards from previews/experiments;
-- protect credentials, payment, user consent, pricing, and inventory integrity;
-- never claim that a protocol improves rankings without evidence;
-- keep ordinary product pages, feeds, and checkout usable.
+1. Verify current official protocol documentation, implementation status, supported partners/markets, versioning, and production availability.
+2. Separate discovery, product understanding, cart/checkout, payment, order management, and post-purchase capabilities; support only the capabilities the merchant actually implements.
+3. Treat any preview, beta, draft, or optional extension as unstable. Pin supported versions and define an upgrade/rollback process.
+4. Keep ordinary product pages, feeds, APIs, and human checkout usable. Protocol support is an additional channel, not an SEO replacement.
+
+#### Discovery and capability profile
+
+Validate:
+
+- the merchant identity and origin that owns the profile;
+- the protocol-defined discovery location and content type;
+- protocol version, services, capabilities, transports, endpoints, and extension names;
+- HTTPS, certificates, redirects, caching, availability, and environment separation;
+- whether the declared operations are truly implemented;
+- schema validation and rejection of unknown or unsupported versions;
+- least-privilege authentication and key rotation;
+- current official conformance tests where available.
+
+Do not advertise a capability merely to appear in an agent ecosystem. A false capability declaration creates transaction and trust risk.
+
+#### Product and inventory truth
+
+Choose the source of truth for:
+
+```text
+merchant and seller
+product/family/variant identifiers
+title, description, media, and options
+price, currency, tax, discount, and effective time
+availability, quantity, location, and fulfillment promise
+shipping, pickup, service area, and delivery estimate
+returns, warranty, eligibility, and restrictions
+```
+
+Reconcile page, structured data, merchant feed, catalog API, protocol response, cart, and checkout. Test stale cache, price changes, out-of-stock transitions, variant changes, regional restrictions, and discontinued products. Never let a descriptive model invent transactional facts.
+
+#### Checkout and consent state machine
+
+Document every transition:
+
+```text
+discovery -> selection -> cart creation/update
+-> buyer and fulfillment input -> tax/shipping calculation
+-> explicit review and consent -> payment authorization
+-> order creation -> confirmation -> fulfillment
+-> cancellation / return / refund / support
+```
+
+For each transition define actor, required input, server-side validation, authorization, idempotency key, expiration, retry behavior, user-visible summary, audit event, and failure recovery.
+
+- Reprice and revalidate availability at the authoritative boundary.
+- Show merchant, items, quantities, total components, currency, fulfillment, recurrence, and policies before confirmation.
+- Require fresh user confirmation after a material price, item, quantity, seller, shipping, or policy change.
+- Keep payment credentials out of page content, logs, analytics, model prompts, and general-purpose storage.
+- Use tokenized/provider-approved payment flows and current security requirements.
+- Prevent replay, duplicate purchase, confused-deputy, substitution, and cross-account access.
+- Never allow a crawler, preview bot, or unauthenticated agent to trigger a transaction.
+
+#### Operational acceptance tests
+
+Test at least:
+
+- valid discovery and unsupported-version response;
+- product found, missing, unavailable, changed, and region-restricted;
+- cart create, update, remove, expiry, and concurrent update;
+- price/tax/shipping change before confirmation;
+- invalid address, inventory race, payment decline, timeout, retry, and duplicate request;
+- explicit confirmation and cancellation boundaries;
+- order confirmation consistency across protocol, merchant system, email/app, and support;
+- refund/return status, webhook signature/replay handling, and reconciliation;
+- rate limiting, abuse, privacy deletion, incident rollback, and monitoring.
+
+Measure valid discovery, task completion, transaction accuracy, abandonment reason, duplicate/error rate, support impact, and reconciliation—not protocol exposure alone. Never claim that implementing a commerce protocol improves organic rankings or AI citations without controlled evidence.
 
 ## Publishers, news, Discover, image, and video
 

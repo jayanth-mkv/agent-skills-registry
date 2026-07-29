@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Email Effectiveness"
+  short_description: "Diagnose email strategy, placement, and trust"
+  default_prompt: "Use $analyze-email-effectiveness to audit this email or sending domain across lifecycle position, copy and conversion, message quality, authentication, placement evidence, consent, compliance, performance, and experiments."

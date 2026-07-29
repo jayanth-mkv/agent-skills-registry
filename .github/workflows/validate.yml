@@ -44,6 +44,12 @@ jobs:
       - name: Compile Python helpers
         run: python -m compileall -q scripts skills
 
+      - name: Install email DNS audit dependency
+        run: python -m pip install -r skills/analyze-email-effectiveness/scripts/requirements.txt
+
+      - name: Test email analysis helper
+        run: python -m unittest discover -s skills/analyze-email-effectiveness/scripts -p "test_*.py" -v
+
       - name: Validate repository invariants
         run: python scripts/validate_all_skills.py
 
@@ -66,6 +72,10 @@ jobs:
       - name: Check helper CLIs
         run: |
           python scripts/assert_cli_discovery.py --help
+          python skills/analyze-email-effectiveness/scripts/audit_email_dns.py --help
+          python skills/analyze-email-effectiveness/scripts/inspect_email.py --help
+          python skills/analyze-email-effectiveness/scripts/parse_dmarc_reports.py --help
+          python skills/analyze-email-effectiveness/scripts/analyze_email_experiment.py --help
           python skills/polish-repository-readme/scripts/make_demo_preview.py --help
 
       - name: Verify pinned skills CLI discovery

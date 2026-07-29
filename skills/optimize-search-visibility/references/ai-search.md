@@ -7,11 +7,12 @@ Use this reference for Google AI features, ChatGPT search, Perplexity, other ans
 1. [Evidence posture](#evidence-posture)
 2. [Eligibility foundations](#eligibility-foundations)
 3. [Crawler and content controls](#crawler-and-content-controls)
-4. [Content and entity quality](#content-and-entity-quality)
-5. [Citation and answer analysis](#citation-and-answer-analysis)
-6. [Measurement](#measurement)
-7. [Experiments](#experiments)
-8. [Myths and unsafe practices](#myths-and-unsafe-practices)
+4. [Interactive agent readiness](#interactive-agent-readiness)
+5. [Content and entity quality](#content-and-entity-quality)
+6. [Citation and answer analysis](#citation-and-answer-analysis)
+7. [Measurement](#measurement)
+8. [Experiments](#experiments)
+9. [Myths and unsafe practices](#myths-and-unsafe-practices)
 
 ## Evidence posture
 
@@ -90,6 +91,8 @@ Inspect:
 
 Test only public resources or user-authorized connections exposed through supported tools. Recommend a policy choice, not blanket access.
 
+If the business uses an AI-surface advertising product, test its documented landing-page validator as a separate crawler purpose. Confirm robots, CDN/WAF response, redirects, regional availability, rate limits, and final landing content. Do not unblock an ads crawler for an organic-search objective or assume that advertising access affects unpaid visibility.
+
 ### Preview and reuse controls
 
 Explain tradeoffs:
@@ -110,6 +113,51 @@ Treat `llms.txt` as experimental and platform-dependent:
 - do not let it replace robots.txt, sitemaps, internal links, accessible HTML, or API/product feeds;
 - if the owner wants one, keep it concise, accurate, non-secret, maintained, and aligned with canonical public resources;
 - measure whether target systems fetch or use it before investing heavily.
+
+## Interactive agent readiness
+
+Search crawlers, browser agents, and user-triggered fetchers are different clients. A page can be citable yet difficult for a user-directed agent to navigate or complete.
+
+### Observe before changing
+
+With an owned test account and an approved browser or agent:
+
+1. define the exact read-only or transactional task;
+2. preserve user consent and require confirmation before consequential actions;
+3. capture raw HTML, rendered DOM, accessibility tree, screenshots, network failures, and console errors;
+4. test logged-out, authenticated, mobile, slow, error, unavailable, and validation states as applicable;
+5. compare what a keyboard and assistive-technology user can identify and operate;
+6. record whether failure came from semantics, rendering, policy, authentication, bot controls, geography, or the agent itself.
+
+Do not weaken authentication, fraud prevention, CAPTCHA, authorization, payment confirmation, or privacy controls merely to make automation easier.
+
+### Semantic interaction contract
+
+- Use native links, buttons, labels, headings, landmarks, lists, tables, and form controls where possible.
+- Give interactive elements stable accessible names that match visible labels.
+- Associate instructions and errors with the relevant field.
+- Expose expanded, selected, disabled, busy, loading, success, and error state programmatically.
+- Keep focus order and keyboard behavior logical.
+- Avoid unlabeled icon-only controls, click-only containers, canvas-only primary tasks, and state encoded only by color.
+- Make prices, quantities, availability, units, dates, restrictions, and totals explicit in text.
+- Keep primary links and content present without requiring hover or a fragile scroll trigger.
+- Provide deterministic success and failure messages rather than silent state changes.
+
+ARIA can improve semantics when native HTML cannot express the component, but incorrect ARIA can make the interface worse. Validate the accessibility tree and actual interactions.
+
+### Infrastructure and safety
+
+Check:
+
+- browser/user-triggered fetcher policy separately from indexing and training crawlers;
+- CDN/WAF challenges, `403`/`429`, geo rules, and asset/API access;
+- authentication expiry, step-up verification, and redirect loops;
+- idempotency and duplicate-submit protection;
+- server-side authorization for every action;
+- confirmation boundaries for purchase, publish, delete, send, or account changes;
+- privacy-safe logging and redaction.
+
+Treat successful agent completion as product/accessibility evidence, not a ranking factor.
 
 ## Content and entity quality
 
@@ -258,7 +306,7 @@ Google AI-feature traffic may be included in overall Web performance data rather
 
 ### Referral analysis
 
-Maintain a documented source grouping for known AI referrers, but preserve raw source/medium. Providers can change referrers or open links through browsers/apps. Compare landing quality and conversion rather than traffic alone.
+Maintain a documented source grouping for known AI referrers, but preserve raw source/medium and any documented campaign parameter before channel rules transform it. Providers can change referrers, append parameters, or open links through browsers/apps. Validate redirects and consent do not strip attribution unexpectedly. Compare landing quality and conversion rather than traffic alone, and keep unattributed/direct traffic as an acknowledged blind spot.
 
 ## Experiments
 
@@ -301,6 +349,8 @@ Reject:
 - claims that `llms.txt` is universally required;
 - blocking/unblocking all AI crawlers without an owner policy;
 - interpreting training access as search visibility;
+- weakening authentication or confirmation so an agent can complete a task;
+- treating agent task completion as a ranking signal;
 - treating one model answer as a stable ranking;
 - copying cited competitors instead of creating better evidence;
 - publishing private data to make content “citable”;
