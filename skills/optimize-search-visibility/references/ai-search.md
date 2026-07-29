@@ -88,7 +88,7 @@ Inspect:
 - DNS/IP allowlisting guidance only from the provider’s official source;
 - whether policy differs by path.
 
-Never bypass controls to test access. Recommend a policy choice, not blanket access.
+Test only public resources or user-authorized connections exposed through supported tools. Recommend a policy choice, not blanket access.
 
 ### Preview and reuse controls
 
