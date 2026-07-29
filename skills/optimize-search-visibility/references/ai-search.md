@@ -89,7 +89,7 @@ Inspect:
 - DNS/IP allowlisting guidance only from the provider’s official source;
 - whether policy differs by path.
 
-Never bypass controls to test access. Recommend a policy choice, not blanket access.
+Test only public resources or user-authorized connections exposed through supported tools. Recommend a policy choice, not blanket access.
 
 If the business uses an AI-surface advertising product, test its documented landing-page validator as a separate crawler purpose. Confirm robots, CDN/WAF response, redirects, regional availability, rate limits, and final landing content. Do not unblock an ads crawler for an organic-search objective or assume that advertising access affects unpaid visibility.
 
