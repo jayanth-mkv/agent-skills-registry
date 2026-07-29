@@ -9,13 +9,14 @@ Use this reference to investigate whether important content can be fetched, rend
 3. [Robots and index controls](#robots-and-index-controls)
 4. [Canonicals and duplicates](#canonicals-and-duplicates)
 5. [Sitemaps and discovery](#sitemaps-and-discovery)
-6. [Architecture and links](#architecture-and-links)
-7. [JavaScript and mobile](#javascript-and-mobile)
-8. [Core Web Vitals](#core-web-vitals)
-9. [Structured data](#structured-data)
-10. [Images, video, and accessibility](#images-video-and-accessibility)
-11. [Large sites and crawl logs](#large-sites-and-crawl-logs)
-12. [Technical acceptance tests](#technical-acceptance-tests)
+6. [Change notification](#change-notification)
+7. [Architecture and links](#architecture-and-links)
+8. [JavaScript and mobile](#javascript-and-mobile)
+9. [Core Web Vitals](#core-web-vitals)
+10. [Structured data](#structured-data)
+11. [Images, video, and accessibility](#images-video-and-accessibility)
+12. [Large sites and crawl logs](#large-sites-and-crawl-logs)
+13. [Technical acceptance tests](#technical-acceptance-tests)
 
 ## Dependency order
 
@@ -49,6 +50,8 @@ Test representative URLs and variants:
 - IPv4/IPv6 or CDN/origin differences when evidence points there.
 
 Record the complete redirect path, status code, final URL, content type, response size, cache behavior, and relevant headers.
+
+On HTTPS pages, inspect insecure subresources and internal HTTP links. Distinguish a browser-blocked or upgraded subresource from a navigational link that redirects. Fix the source template to emit the intended HTTPS URL after confirming the resource works there.
 
 ### Status intent
 
@@ -164,6 +167,22 @@ vs search-engine-known/indexed URLs
 
 Differences reveal orphan candidates, stale URLs, crawl traps, and inventory gaps. Do not call a URL “orphaned” from a crawl alone; it may have links outside the crawl scope.
 
+## Change notification
+
+Sitemaps, internal links, feeds, and ordinary recrawling remain the durable discovery foundation. For high-change inventory, a search engine may also support an authenticated URL-change notification protocol such as IndexNow.
+
+Use it only when the target engine currently supports it and the site owner authorizes submission:
+
+1. verify the current protocol, endpoint, key ownership, URL limits, and participating engines;
+2. generate the key through an approved secret process and expose only the required verification artifact;
+3. submit canonical URLs on meaningful create, update, or delete events rather than every request;
+4. batch, deduplicate, rate-limit, retry only documented transient failures, and keep a dead-letter queue;
+5. record event time, submitted URL, change type, response, retry count, and source release;
+6. monitor delivery failures and compare downstream crawl/index evidence by cohort;
+7. test deletion and rollback behavior before enabling at scale.
+
+An accepted notification confirms receipt, not crawling, indexing, ranking, or display. Do not expose keys in reports or repositories, and do not use notification APIs to submit URLs the owner does not control.
+
 ## Architecture and links
 
 Model the site as URL cohorts and a directed link graph.
@@ -182,6 +201,33 @@ Check:
 - internal links to noncanonical, `noindex`, or blocked URLs.
 
 There is no universal “three-click rule.” Treat depth as a proxy for discoverability and priority, then interpret it in the site’s architecture.
+
+### Faceted navigation
+
+Build a facet matrix before changing controls:
+
+| Facet/state | User value | Search demand | Unique inventory/content | Stable URL | Index? | Crawl/discovery rule | Canonical |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+- Keep user filtering independent from which combinations become search landing pages.
+- Allow only selected, stable combinations with real inventory and maintained value.
+- Normalize parameter order and prevent session, tracking, empty, contradictory, and near-infinite combinations.
+- Make indexable facet pages discoverable through intentional links; do not depend on form controls alone.
+- Define empty, low-inventory, changed-inventory, and expired behavior.
+- Do not combine robots blocking and `noindex` in a way that prevents the directive from being read.
+- Test crawl volume and index state by cohort after each control change.
+
+Canonical tags do not make an infinite URL space harmless. Prevent unnecessary discovery at the generator and linking layers.
+
+### Pagination and incremental loading
+
+- Give each result page a stable crawlable URL and a direct link from the previous page.
+- Keep paginated pages self-canonical when they contain distinct items.
+- Do not canonicalize every page in a sequence to page one.
+- Ensure “load more” or infinite scroll has equivalent URL states and crawlable links.
+- Avoid fragment-only navigation for content that needs independent discovery.
+- Keep filtering/sorting parameters separate from the core page sequence.
+- Test deep pages with JavaScript disabled as a discovery diagnostic and in the rendered experience for users.
 
 ## JavaScript and mobile
 
@@ -333,9 +379,12 @@ For very large or rapidly changing sites:
 - identify traps, duplicate parameters, slow cohorts, repeated errors, and stale inventory;
 - inspect faceting rules, search pages, session URLs, calendars, infinite pagination, and soft 404s;
 - use CMS/database inventory to measure coverage;
+- send accurate `Last-Modified`/`ETag` validators where the stack supports them and verify conditional requests return a correct `304` without a response body;
+- cache stable resources without serving stale directives, canonicals, inventory, prices, or error states;
+- keep robots.txt, sitemaps, redirects, and important HTML available during load spikes;
 - change one control at a time where possible.
 
-Do not invoke “crawl budget” as a generic explanation for a small site. Establish scale and crawl evidence first.
+Use the bundled log analyzer for a bounded first pass, then verify material crawler identities and join path cohorts to the CMS/crawl inventory. Do not invoke “crawl budget” as a generic explanation for a small site. Establish scale, update rate, and crawl evidence first.
 
 ## Technical acceptance tests
 
@@ -350,6 +399,7 @@ Expected meta/X-Robots directive:
 Expected canonical:
 Expected hreflang set:
 Expected sitemap membership:
+Expected change-notification event, if used:
 Expected internal-link source:
 Raw primary content present:
 Rendered primary content present:

@@ -32,7 +32,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Iterable
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 SCHEMA_VERSION = "1.0"
 DEFAULT_USER_AGENT = "AgentSkillsSEOAudit/1.0"
 DEFAULT_MAX_BYTES = 5_000_000
@@ -45,6 +45,10 @@ CANONICAL_HEADER_RE = re.compile(
     re.IGNORECASE,
 )
 HTTP_EQUIV_REFRESH_RE = re.compile(r"^\s*\d+\s*;\s*url\s*=", re.IGNORECASE)
+HREFLANG_CODE_RE = re.compile(
+    r"(?:x-default|[a-z]{2,3}(?:-[a-z0-9]{2,8})*)\Z",
+    re.IGNORECASE,
+)
 
 
 def utc_now() -> str:
@@ -805,7 +809,11 @@ def build_findings(
     robots_record: dict[str, Any],
 ) -> tuple[list[dict[str, str]], list[dict[str, Any]]]:
     findings: list[dict[str, str]] = []
-    page_by_url = {page["url"]: page for page in pages}
+    page_by_url: dict[str, dict[str, Any]] = {}
+    for page in pages:
+        page_by_url[page["url"]] = page
+        if page.get("requested_url"):
+            page_by_url.setdefault(page["requested_url"], page)
 
     title_groups: defaultdict[str, list[str]] = defaultdict(list)
     description_groups: defaultdict[str, list[str]] = defaultdict(list)
@@ -967,7 +975,10 @@ def build_findings(
                     "index-control",
                     url,
                     "A noindex directive was observed in meta or HTTP headers.",
-                    caveat="Validate against the intended index state before treating as a defect.",
+                    caveat=(
+                        "Validate against the intended index state before treating "
+                        "as a defect."
+                    ),
                 )
             )
         if page.get("meta_refresh") and HTTP_EQUIV_REFRESH_RE.search(
@@ -1045,9 +1056,33 @@ def build_findings(
                     "performance",
                     url,
                     f"{len(unsized)} image(s) omit width or height attributes.",
-                    caveat="CSS aspect-ratio or other layout reservations may still prevent shifts.",
+                    caveat=(
+                        "CSS aspect-ratio or other layout reservations may still "
+                        "prevent shifts."
+                    ),
                 )
             )
+        if urllib.parse.urlsplit(url).scheme == "https":
+            insecure_images = [
+                image
+                for image in page.get("images", [])
+                if image.get("url")
+                and urllib.parse.urlsplit(image["url"]).scheme == "http"
+            ]
+            if insecure_images:
+                findings.append(
+                    finding(
+                        "insecure_image_on_https",
+                        "medium",
+                        "security",
+                        url,
+                        f"{len(insecure_images)} image reference(s) use HTTP on an HTTPS page.",
+                        caveat=(
+                            "Confirm browser behavior and resource availability "
+                            "before changing the source template."
+                        ),
+                    )
+                )
 
         if page.get("source") == "sitemap" and inbound[url] == 0 and url != root_url:
             findings.append(
@@ -1068,7 +1103,10 @@ def build_findings(
                     "architecture",
                     url,
                     f"First observed at crawl depth {page['depth']}.",
-                    caveat="There is no universal click-depth threshold; assess business importance.",
+                    caveat=(
+                        "There is no universal click-depth threshold; assess "
+                        "business importance."
+                    ),
                 )
             )
 
@@ -1088,7 +1126,10 @@ def build_findings(
                         f"Same title observed on {len(urls)} crawled pages.",
                         detail=normalized_title,
                         scope="crawl-sample",
-                        caveat="Duplicate titles can indicate unclear page roles but do not prove duplicate content.",
+                        caveat=(
+                            "Duplicate titles can indicate unclear page roles but "
+                            "do not prove duplicate content."
+                        ),
                     )
                 )
     for normalized_description, urls in description_groups.items():
@@ -1119,10 +1160,156 @@ def build_findings(
                         "medium",
                         "content",
                         url,
-                        f"Normalized visible text exactly matches {len(urls) - 1} other crawled page(s).",
+                        "Normalized visible text exactly matches "
+                        f"{len(urls) - 1} other crawled page(s).",
                         detail=fingerprint,
                         scope="crawl-sample",
-                        caveat="Templates and navigation are included in the approximate text extraction.",
+                        caveat=(
+                            "Templates and navigation are included in the "
+                            "approximate text extraction."
+                        ),
+                    )
+                )
+
+    for page in pages:
+        if not page.get("is_html") or not page.get("hreflang"):
+            continue
+        source_url = page["url"]
+        alternates = page["hreflang"]
+        by_language: defaultdict[str, list[str]] = defaultdict(list)
+        for alternate in alternates:
+            language = clean_text(alternate.get("lang", "")).casefold()
+            target = alternate.get("href", "")
+            by_language[language].append(target)
+            if not language or not HREFLANG_CODE_RE.fullmatch(language):
+                findings.append(
+                    finding(
+                        "invalid_hreflang_syntax",
+                        "medium",
+                        "international",
+                        source_url,
+                        f"Hreflang value has unsupported syntax: {alternate.get('lang', '')!r}.",
+                        detail=f"{language}\0{target}",
+                        caveat=(
+                            "Verify valid language/region values against current "
+                            "search documentation."
+                        ),
+                    )
+                )
+
+        for language, targets in by_language.items():
+            if len(targets) > 1:
+                findings.append(
+                    finding(
+                        "duplicate_hreflang_language",
+                        "medium",
+                        "international",
+                        source_url,
+                        f"Hreflang value {language or '(empty)'} appears {len(targets)} times.",
+                        detail=f"{language}\0{'|'.join(sorted(targets))}",
+                        caveat="Emit one intended alternate per language/region value.",
+                    )
+                )
+
+        self_references = {
+            alternate["href"]
+            for alternate in alternates
+            if clean_text(alternate.get("lang", "")).casefold() != "x-default"
+        }
+        if source_url not in self_references:
+            findings.append(
+                finding(
+                    "hreflang_self_reference_missing",
+                    "medium",
+                    "international",
+                    source_url,
+                    "The observed hreflang cluster does not include a self-reference.",
+                    scope="crawl-sample",
+                )
+            )
+
+        canonicals = page.get("canonicals", [])
+        if canonicals and canonicals[0] != source_url:
+            findings.append(
+                finding(
+                    "hreflang_canonical_conflict",
+                    "high",
+                    "international",
+                    source_url,
+                    f"Page participates in hreflang but canonicalizes to {canonicals[0]}.",
+                    detail=canonicals[0],
+                    caveat=(
+                        "Confirm whether the page is intentionally noncanonical "
+                        "before changing either signal."
+                    ),
+                )
+            )
+
+        for target in sorted({item["href"] for item in alternates if item.get("href")}):
+            target_page = page_by_url.get(target)
+            if not target_page:
+                continue
+            target_url = target_page["url"]
+            if target_url != target:
+                findings.append(
+                    finding(
+                        "hreflang_target_redirected",
+                        "medium",
+                        "international",
+                        source_url,
+                        f"Hreflang target {target} resolved to {target_url}.",
+                        detail=target,
+                    )
+                )
+            if target_page.get("status") != 200:
+                findings.append(
+                    finding(
+                        "hreflang_target_error",
+                        "high" if (target_page.get("status") or 0) >= 500 else "medium",
+                        "international",
+                        source_url,
+                        f"Hreflang target {target} returned HTTP {target_page.get('status')}.",
+                        detail=target,
+                    )
+                )
+                continue
+            if target_page.get("noindex_observed"):
+                findings.append(
+                    finding(
+                        "hreflang_target_noindex",
+                        "medium",
+                        "international",
+                        source_url,
+                        f"Hreflang target {target} has an observed noindex directive.",
+                        detail=target,
+                    )
+                )
+            target_canonicals = target_page.get("canonicals", [])
+            if target_canonicals and target_canonicals[0] != target_url:
+                findings.append(
+                    finding(
+                        "hreflang_target_noncanonical",
+                        "medium",
+                        "international",
+                        source_url,
+                        f"Hreflang target {target} canonicalizes to {target_canonicals[0]}.",
+                        detail=target,
+                    )
+                )
+            reciprocal_targets = {
+                item.get("href", "") for item in target_page.get("hreflang", [])
+            }
+            if source_url not in reciprocal_targets:
+                findings.append(
+                    finding(
+                        "hreflang_not_reciprocal",
+                        "medium",
+                        "international",
+                        source_url,
+                        f"Hreflang target {target} does not link back to this URL.",
+                        detail=target,
+                        scope="crawl-sample",
+                        caveat="Only evaluated when the target was fetched in this crawl.",
                     )
                 )
 
@@ -1130,6 +1317,28 @@ def build_findings(
         source_url = source["url"]
         for link in source.get("links", []):
             target = link["url"]
+            source_parts = urllib.parse.urlsplit(source_url)
+            target_parts = urllib.parse.urlsplit(target)
+            if (
+                source_parts.scheme == "https"
+                and target_parts.scheme == "http"
+                and (source_parts.hostname or "").casefold()
+                == (target_parts.hostname or "").casefold()
+            ):
+                findings.append(
+                    finding(
+                        "insecure_internal_link_on_https",
+                        "low",
+                        "internal-links",
+                        source_url,
+                        f"Internal link uses HTTP from an HTTPS page: {target}.",
+                        detail=target,
+                        caveat=(
+                            "Confirm the intended HTTPS destination and update the "
+                            "source link directly."
+                        ),
+                    )
+                )
             target_page = page_by_url.get(target) or page_by_url.get(without_query(target))
             if not target_page:
                 continue
@@ -1193,7 +1402,10 @@ def build_findings(
                 root_url,
                 f"{len(query_urls)} internal query-string URL(s) were discovered.",
                 scope="crawl-sample",
-                caveat="They were not fetched unless --include-query-urls was used; define facet/parameter policy.",
+                caveat=(
+                    "They were not fetched unless --include-query-urls was used; "
+                    "define facet/parameter policy."
+                ),
             )
         )
     if robots_record.get("status") is None or (
@@ -1206,7 +1418,10 @@ def build_findings(
                 "crawl-control",
                 robots_record["url"],
                 f"robots.txt was not parsed (status {robots_record.get('status')}).",
-                caveat="A robots.txt file is not required to allow crawling; review server behavior and intended policy.",
+                caveat=(
+                    "A robots.txt file is not required to allow crawling; review "
+                    "server behavior and intended policy."
+                ),
             )
         )
 
@@ -1259,6 +1474,7 @@ def markdown_report(audit: dict[str, Any], max_findings: int) -> str:
         ("Sitemap URLs discovered", "sitemap_urls_discovered"),
         ("Internal links observed", "internal_links_observed"),
         ("External links observed", "external_links_observed"),
+        ("Pages with hreflang", "pages_with_hreflang"),
         ("Query URLs discovered", "query_urls_discovered"),
     ]
     for label, key in coverage_fields:
@@ -1350,7 +1566,10 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--timeout", type=float, default=20.0, help="Seconds per request")
     parser.add_argument(
-        "--delay", type=float, default=0.5, help="Delay between requests in seconds"
+        "--delay",
+        default=0.5,
+        type=float,
+        help="Seconds to wait between requests",
     )
     parser.add_argument("--user-agent", default=DEFAULT_USER_AGENT)
     parser.add_argument(
@@ -1569,6 +1788,9 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "sitemap_urls_discovered": len(sitemap_urls),
         "internal_links_observed": len(internal_edges),
         "external_links_observed": len(external_edges),
+        "pages_with_hreflang": sum(
+            1 for page in pages if page.get("is_html") and page.get("hreflang")
+        ),
         "query_urls_discovered": len(query_urls),
         "findings_total": len(findings),
         "findings_by_severity": dict(sorted(severity_counts.items())),
@@ -1649,9 +1871,10 @@ def main() -> int:
                 print(f"Wrote {args.markdown}", file=sys.stderr)
         return 0
     except (ValueError, RuntimeError, OSError) as exc:
-        print(f"ERROR: {exc}", file=sys.stderr)
+        sys.stderr.write(f"ERROR: {exc}\n")
         return 2
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    exit_code = main()
+    raise SystemExit(exit_code)

@@ -904,9 +904,10 @@ def main() -> int:
                 print(f"Wrote {args.markdown}", file=sys.stderr)
         return 0
     except (ValueError, OSError, csv.Error) as exc:
-        print(f"ERROR: {exc}", file=sys.stderr)
+        sys.stderr.write(f"ERROR: {exc}\n")
         return 2
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    exit_code = main()
+    raise SystemExit(exit_code)

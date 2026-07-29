@@ -6,13 +6,15 @@ Use this reference for Google Search Console, analytics, Bing data, URL Inspecti
 
 1. [Interpretation rules](#interpretation-rules)
 2. [Data acquisition](#data-acquisition)
-3. [Baseline and segmentation](#baseline-and-segmentation)
-4. [Performance workflows](#performance-workflows)
-5. [Indexing workflows](#indexing-workflows)
-6. [Traffic-drop diagnosis](#traffic-drop-diagnosis)
-7. [Analytics and conversion](#analytics-and-conversion)
-8. [Logs, rank, and backlink data](#logs-rank-and-backlink-data)
-9. [Reporting requirements](#reporting-requirements)
+3. [Large-property exports](#large-property-exports)
+4. [Baseline and segmentation](#baseline-and-segmentation)
+5. [Performance workflows](#performance-workflows)
+6. [Indexing workflows](#indexing-workflows)
+7. [AI citation reports](#ai-citation-reports)
+8. [Traffic-drop diagnosis](#traffic-drop-diagnosis)
+9. [Analytics and conversion](#analytics-and-conversion)
+10. [Logs, rank, and backlink data](#logs-rank-and-backlink-data)
+11. [Reporting requirements](#reporting-requirements)
 
 ## Interpretation rules
 
@@ -40,6 +42,7 @@ Account for:
 - recent/preliminary data changing;
 - different search types requiring separate analysis;
 - API row, quota, and load limits;
+- bulk exports excluding anonymized query detail and following their own freshness/schema rules;
 - chart totals exceeding visible/exported table rows;
 - regex/filtering changing totals because anonymous rows are excluded.
 
@@ -90,6 +93,25 @@ It also accepts common localized/case variants documented in `--help`. Provide m
 - Annotate launches, migrations, tracking changes, incidents, campaigns, holidays, and search updates.
 - Exclude incomplete days unless the task is real-time incident response.
 - Use longer windows for sparse data and shorter windows for clear incidents.
+
+## Large-property exports
+
+Interactive interfaces and row APIs may not return all detailed rows for a large property. When the platform provides a scheduled warehouse export, use it for repeatable cohort analysis while preserving the documented privacy exclusions.
+
+Before relying on one:
+
+1. verify the current schema, export start date, freshness, correction behavior, privacy exclusions, retention, and backfill limits;
+2. confirm property identity, destination project/dataset, region, billing controls, and least-privilege access;
+3. query only required date partitions and columns;
+4. aggregate clicks and impressions before calculating CTR or joining high-cardinality data;
+5. keep site-level and URL-level grains distinct;
+6. reconcile several daily totals against the native report using the same search type and aggregation;
+7. save query text, parameters, bytes processed, row count, run time, and output checksum;
+8. monitor missing partitions, late data, duplicate keys, schema drift, and unexpected cost.
+
+Do not join raw query-page-device-country rows directly to another many-to-many dataset. First aggregate to the decision's declared grain. Treat absent anonymized query detail as unknown, not zero.
+
+For a one-time narrow question, a bounded API or export may be cheaper and clearer than warehouse setup. Use the source-selection and cost controls in [data-and-tooling.md](data-and-tooling.md).
 
 ## Baseline and segmentation
 
@@ -257,6 +279,29 @@ An excluded utility URL can be correct. An indexed URL is not automatically valu
 
 Use separate sitemaps by meaningful template or lifecycle when this improves diagnosis. Compare submitted, read, discovered, indexed, and traffic outcomes. Do not use sitemap inclusion as proof of index eligibility.
 
+## AI citation reports
+
+Some webmaster platforms expose first-party reports about citations or grounding in their AI search experiences. Availability, names, metrics, and definitions can change; verify the current official documentation and actual property interface at execution time.
+
+When available, capture:
+
+- property, date window, market/surface, freshness, and report status;
+- total citation events under the platform's definition;
+- cited URL/page activity;
+- example grounding or source-selection queries when exposed;
+- changes by page cohort and topic;
+- whether the report is complete, sampled, rounded, or privacy-filtered.
+
+Keep these concepts separate:
+
+- a citation event is not necessarily a click;
+- a cited page count is not an index-coverage count;
+- a grounding query is not automatically equivalent to an ordinary search query;
+- citation frequency does not reveal placement, authority, sentiment, or ranking unless the platform explicitly reports it;
+- report changes can reflect product rollout, reporting changes, or prompt mix as well as site changes.
+
+Corroborate with reproducible manual or approved-API observations, verified crawler logs, raw referral data, and qualified outcomes. Preserve the platform's own metric names and definitions rather than converting them into an invented “AI visibility score.”
+
 ## Traffic-drop diagnosis
 
 ### First establish the incident
@@ -326,7 +371,17 @@ Traffic is not the end goal. A lower-volume, higher-qualified cohort may be an i
 
 ### Server/CDN logs
 
-Verify crawler identity where consequential. Segment requests by host, crawler, status, path/template, content type, response time, and date. Use logs to test crawl behavior; logs do not prove indexing.
+Analyze an owned local export with:
+
+```bash
+python scripts/analyze_crawl_logs.py access.log \
+  --output crawl-log-analysis.json \
+  --markdown crawl-log-analysis.md
+```
+
+The bundled analyzer treats user-agent matches as claimed crawler families, redacts query values by default, and reports parsing coverage. Verify crawler identity using current provider guidance and infrastructure evidence where consequential.
+
+Segment requests by host, verified or claimed crawler, status, path/template, content type, response time, cache result, and date. Look for repeated errors, redirected/noncanonical targets, parameter traps, stale inventory, blocked resources, and important cohorts with little observed crawling. Use logs to test crawl behavior; logs do not prove indexing.
 
 ### Rank trackers
 

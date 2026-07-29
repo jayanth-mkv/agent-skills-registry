@@ -32,8 +32,10 @@ Turn search-visibility questions into evidence, fixes, verification, and a measu
 | “Audit/fix this page” | Page audit | Intent and SERP fit, content/on-page/technical findings, specific revisions |
 | “Why did traffic drop?” | Incident diagnosis | Timeline, segmented deltas, competing causes, recovery tests |
 | “Use Search Console data” | Performance analysis | Queries/pages/segments, opportunities, losses, candidate conflicts, actions |
+| “Build an SEO data/reporting system” | Data operations | Source contract, safe extraction, joins, quality checks, governed reporting |
 | “Technical SEO / indexing” | Technical diagnosis | Crawl, render, canonical, directive, sitemap, status, CWV, schema findings |
 | “Create a content strategy/brief” | Growth strategy | Demand map, intent clusters, portfolio gaps, briefs, internal-link plan |
+| “Improve CTR, landing experience, or conversions” | Search experience | SERP evidence, promise fit, usability, experiment and outcome plan |
 | “Improve AI/GEO/AEO visibility” | AI-search analysis | Eligibility, crawler controls, citation evidence, entity/content improvements |
 | “Local/international/ecommerce/pSEO” | Specialist audit | Relevant specialist checks plus core foundations |
 | “Migrate/redesign this site” | Change control | URL mapping, preflight, launch gates, rollback and monitoring plan |
@@ -47,7 +49,9 @@ For a narrow request, run the narrow mode. For a broad audit, use the complete w
 - Read [audit-and-prioritization.md](references/audit-and-prioritization.md) for audit coverage, evidence grades, sampling, finding records, severity, and reporting.
 - Read [technical-seo.md](references/technical-seo.md) for crawling, indexing, canonicals, directives, sitemaps, redirects, rendering, performance, structured data, images, and large-site checks.
 - Read [content-and-authority.md](references/content-and-authority.md) for research, intent, content quality, briefs, refreshes, internal linking, and link earning.
+- Read [search-experience-and-serps.md](references/search-experience-and-serps.md) for reproducible SERP observation, query-to-page fit, answer formats, titles/snippets, accessibility, conversion paths, comparisons, tools, and SEO experiments.
 - Read [search-console-and-analysis.md](references/search-console-and-analysis.md) before interpreting GSC, analytics, URL Inspection, crawl logs, CTR, “cannibalization,” or traffic changes.
+- Read [data-and-tooling.md](references/data-and-tooling.md) before selecting integrations, running paid or high-volume data collection, operating bulk exports, joining sources, or designing recurring reports.
 - Read [ai-search.md](references/ai-search.md) for AI features, crawler controls, answer-engine visibility, citations, `llms.txt`, and measurement.
 - Read [specialist-playbooks.md](references/specialist-playbooks.md) for local, international, ecommerce, publisher, SaaS, programmatic, UGC, migration, or multi-site work.
 - Read [implementation-and-measurement.md](references/implementation-and-measurement.md) before changing code/content or defining tests, tickets, experiments, dashboards, and monitoring.
@@ -70,7 +74,7 @@ State exclusions. “Entire site” still requires crawl caps, sampling, and cov
 
 ### 2. Create an evidence plan
 
-Use the least invasive sources that answer the decision:
+Use the least invasive sources that answer the decision. For multi-source, paid, connected, or recurring work, define the data contract and guardrails in [data-and-tooling.md](references/data-and-tooling.md).
 
 1. **Public evidence** — HTTP responses, raw and rendered HTML, robots.txt, sitemaps, internal links, representative SERPs, supported validators, PageSpeed/CrUX.
 2. **First-party evidence** — GSC, analytics, Bing, Business Profile, Merchant Center, server/CDN logs, CMS inventory, conversions, revenue, experiments.
@@ -117,9 +121,17 @@ python scripts/analyze_gsc.py \
   --markdown gsc-analysis.md
 ```
 
+- For owned server/CDN access logs, analyze a local export without exposing query values:
+
+```bash
+python scripts/analyze_crawl_logs.py access.log \
+  --output crawl-log-analysis.json \
+  --markdown crawl-log-analysis.md
+```
+
 - Use CrUX or another field source for real-user Core Web Vitals when available. Use Lighthouse/PageSpeed lab results to diagnose causes, not to impersonate field performance.
 - Segment Search Console and analytics before interpreting totals: page type, directory, query class, country, device, search type, brand/non-brand, and comparable dates.
-- Inspect representative SERPs for intent, result types, diversity, freshness, and competitor coverage. Record locale/device/date and treat rankings as variable observations.
+- Inspect representative SERPs using [search-experience-and-serps.md](references/search-experience-and-serps.md) for intent, result types, diversity, freshness, promise fit, and competitor coverage. Record locale/device/date and treat rankings as variable observations.
 - Use backlink or rank vendors only as estimates; name the provider and never merge incompatible proprietary metrics as if equivalent.
 
 ### 5. Diagnose in dependency order
@@ -128,7 +140,7 @@ Evaluate these layers:
 
 1. **Availability and eligibility** — DNS/TLS/HTTP, status behavior, crawl access, `noindex`, manual actions/security, canonical conflicts.
 2. **Discovery and architecture** — sitemaps, navigation, crawl depth, orphan candidates, internal links, faceting, pagination, URL duplication.
-3. **Rendering and experience** — raw/rendered parity, mobile parity, accessibility blockers, intrusive UI, CWV field status and lab causes.
+3. **Rendering and experience** — raw/rendered parity, mobile parity, accessibility and agent-interaction blockers, intrusive UI, task completion, CWV field status and lab causes.
 4. **Meaning and intent** — page purpose, query/audience fit, content accuracy, originality, demonstrated experience, topical gaps, freshness.
 5. **Presentation eligibility** — titles/snippets, images/video, structured data that matches visible content, merchant/local data consistency.
 6. **Authority and demand** — brand/entity consistency, relevant mentions and links, reputation, linkable evidence, distribution.
@@ -219,6 +231,8 @@ Make the result executable. Give exact examples, selectors, routes, queries, rew
 - Are crawl/index/rank/traffic/conversion concepts kept distinct?
 - Were raw HTML, rendered output, first-party data, and representative templates used where relevant?
 - Are Search Console limitations and date/segment effects reflected?
+- Were data grain, cost, permissions, normalization, joins, truncation, and freshness made explicit?
+- Does the search result promise continue through an accessible page experience and appropriate next action?
 - Were SEO folklore and false precision removed?
 - Does every high-priority action have affected scope, an owner, an acceptance test, and a rollback concern?
 - Were current platform rules verified from primary sources?
